@@ -1,5 +1,7 @@
 package main
 
+//https://leetcode-cn.com/problems/permutations/
+
 import "fmt"
 
 func permute(nums []int) [][]int {
