@@ -22,10 +22,13 @@ func Filter(in <-chan int, out chan<- int, prime int) {
 	}
 }
 
-func main() {
-	count := 0
-	for i := 1; i <= 10; i++ {
-		count += i
+func recursive(n int) int {
+	if n  == 1 {
+		return 1
 	}
-	fmt.Println(count)
+	return recursive(n-1) + n
+}
+
+func main() {
+	fmt.Println(recursive(10))
 }
