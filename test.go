@@ -30,5 +30,9 @@ func recursive(n int) int {
 }
 
 func main() {
-	fmt.Println(recursive(10))
+	count := 0
+	for i := 1; i <= 10; i++ {
+		count += i
+	}
+	fmt.Println(count)
 }
