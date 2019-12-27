@@ -2,7 +2,10 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // Send the sequence 2, 3, 4, ... to channel 'ch'.
 func Generate(ch chan<- int) {
@@ -30,9 +33,21 @@ func recursive(n int) int {
 }
 
 func main() {
-	count := 0
-	for i := 1; i <= 10; i++ {
-		count += i
+	file, err := os.Open("/null")
+
+
+	if err != nil {
+		fmt.Println("open error! ", err)
+		return
 	}
-	fmt.Println(count)
+	defer func() {
+		fmt.Println("close error: ")
+		err := file.Close()
+
+		if err != nil {
+			fmt.Println("close error: ", err)
+		} else {
+			fmt.Println("close no error")
+		}
+	}()
 }
