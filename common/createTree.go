@@ -64,6 +64,6 @@ func VisitNodeByLayer(root *TreeNode) {
 
 // 1000001 表示 nil
 //func main() {
-//	root := createTree([]int {10,5,-3,3,2,1000001,11,3,-2,1000001,1})
-//	visitNodeByLayer(root)
+//	root := CreateTree([]int {10,5,-3,3,2,1000001,11,3,-2,1000001,1})
+//	VisitNodeByLayer(root)
 //}

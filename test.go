@@ -4,7 +4,7 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"reflect"
 )
 
 // Send the sequence 2, 3, 4, ... to channel 'ch'.
@@ -33,21 +33,29 @@ func recursive(n int) int {
 }
 
 func main() {
-	file, err := os.Open("/null")
+	//file, err := os.Open("/null")
+	//
+	//
+	//if err != nil {
+	//	fmt.Println("open error! ", err)
+	//	return
+	//}
+	//defer func() {
+	//	fmt.Println("close error: ")
+	//	err := file.Close()
+	//
+	//	if err != nil {
+	//		fmt.Println("close error: ", err)
+	//	} else {
+	//		fmt.Println("close no error")
+	//	}
+	//}()
 
+	var temp interface{} = 5
+	fmt.Println(reflect.TypeOf(temp))
+	var intTemp int = temp.(int)
+	fmt.Println(intTemp)
+	temp = "string666"
+	fmt.Println(reflect.TypeOf(temp))
 
-	if err != nil {
-		fmt.Println("open error! ", err)
-		return
-	}
-	defer func() {
-		fmt.Println("close error: ")
-		err := file.Close()
-
-		if err != nil {
-			fmt.Println("close error: ", err)
-		} else {
-			fmt.Println("close no error")
-		}
-	}()
 }
