@@ -40,6 +40,6 @@ func threeSumClosest(nums []int, target int) int {
 func main() {
 	fmt.Println(threeSumClosest([]int {-1, 2, 1, -4}, 1))
 	fmt.Println(threeSumClosest([]int {0, 1, 2}, 3))
-	//test := "qwe"
-	//fmt.Println(test + "d")
+	//competition := "qwe"
+	//fmt.Println(competition + "d")
 }

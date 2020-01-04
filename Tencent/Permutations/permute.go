@@ -36,9 +36,9 @@ func main() {
 	fmt.Println(permute([]int {1,2,3}))
 	//temp := []int {3}
 	//fmt.Println(append(temp[:0], temp[0+1:]...))
-	//test := []int {1,2}
-	//fmt.Println(test, &test[0])
-	//temp := append(test[:0],test[1:]...)
+	//competition := []int {1,2}
+	//fmt.Println(competition, &competition[0])
+	//temp := append(competition[:0],competition[1:]...)
 	//fmt.Println(temp, &temp[0])
-	//fmt.Println(test, &test[0])
+	//fmt.Println(competition, &competition[0])
 }
