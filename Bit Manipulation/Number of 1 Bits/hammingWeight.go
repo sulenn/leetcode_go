@@ -1,5 +1,7 @@
 package main
 
+//https://leetcode-cn.com/problems/number-of-1-bits/
+
 import "fmt"
 
 ////循环和位移动
@@ -16,7 +18,7 @@ import "fmt"
 //}
 
 //位操作的小技巧
-//在二进制表示中，数字 nn 中最低位的 11 总是对应 n - 1n−1 中的 00 。因此，将 nn 和 n - 1n−1 与运算总是能把 nn 中最低位的 11 变成 00 ，并保持其他位不变。
+//在二进制表示中，数字 n 中最低位的 1 总是对应 n - 1 中的 0 。因此，将 n 和 n−1 与运算总是能把 n 中最低位的 1 变成 0 ，并保持其他位不变。
 func hammingWeight(num uint32) int {
 	result := 0
 	for num != 0 {
