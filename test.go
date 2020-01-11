@@ -2,7 +2,6 @@ package main
 
 import (
 	"./common"
-	"fmt"
 )
 
 type TreeNode struct {
@@ -48,8 +47,12 @@ func getAllElements(root1 *common.TreeNode, root2 *common.TreeNode) []int {
 	return result
 }
 
+
+
 func main() {
-	fmt.Println(getAllElements(common.CreateTree([]int{2,1,4}), common.CreateTree([]int{1,0,3})))
-	fmt.Println(getAllElements(common.CreateTree([]int{0,-10,10}), common.CreateTree([]int{5,1,7,0,2})))
-	fmt.Println(getAllElements(common.CreateTree([]int{0,-10,10}), common.CreateTree([]int{})))
+	//fmt.Println(getAllElements(common.CreateTree([]int{2,1,4}), common.CreateTree([]int{1,0,3})))
+	//fmt.Println(getAllElements(common.CreateTree([]int{0,-10,10}), common.CreateTree([]int{5,1,7,0,2})))
+	//fmt.Println(getAllElements(common.CreateTree([]int{0,-10,10}), common.CreateTree([]int{})))
+
+
 }
