@@ -21,12 +21,12 @@ func findMin(nums []int) int {
 		} else if mid < len(nums) && nums[mid+1] < nums[mid] {   // nums[mid+1] < nums[mid]
 			return nums[mid+1]
 		}
-		if nums[mid] > nums[0] {
+		if nums[mid] > nums[prev] {
 			prev = mid + 1
 		} else {
 			tail = mid - 1
 		}
 	}
-	return 0
+	return nums[0]
 }
 
