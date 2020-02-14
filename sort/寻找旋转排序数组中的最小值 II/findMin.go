@@ -9,6 +9,9 @@ func findMin(nums []int) int {
 	if len(nums) == 0 {
 		panic(errors.New("数组为空！"))
 	}
+	if nums[0] < nums[len(nums)-1] {   // 针对 [1、2] 这种特殊的测试用例
+		return nums[0]
+	}
 	prev := 0
 	tail := len(nums) - 1
 	for tail > prev {
