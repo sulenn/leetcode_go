@@ -1,5 +1,7 @@
 package main
 
+//https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
+
 import "container/heap"
 
 // 利用 go 中自带的堆结构来做。大顶堆
