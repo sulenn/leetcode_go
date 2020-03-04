@@ -28,3 +28,4 @@ func longest(root *Node) int {
 	}
 	return result
 }
+
