@@ -1,6 +1,6 @@
 package main
 
-//https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/
+//https://leetcode-cn.com/problems/number-of-digit-one/
 
 //参考：https://leetcode-cn.com/problems/number-of-digit-one/solution/shu-zi-1-de-ge-shu-by-leetcode/
 //每一位上1的数量公式：countr += (n / divider) * i + min(max(n % divider - i + 1, 0), i);
@@ -24,4 +24,3 @@ func countDigitOne(n int) int {
 	}
 	return result
 }
-
