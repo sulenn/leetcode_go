@@ -1,4 +1,4 @@
-package 百度
+package 创建任意协程求累加和
 
 import (
 "fmt"
