@@ -1,4 +1,4 @@
-package 创建任意协程求累加和
+package main
 
 import (
 "fmt"
@@ -30,6 +30,7 @@ func addA(arr []int, ch chan int)  {
 	sum := 0
 	for _, v:= range arr {
 		sum += v
+		//fmt.Println(v)
 	}
 	ch <- sum
 	//syn.Done()
@@ -38,11 +39,11 @@ func addA(arr []int, ch chan int)  {
 func main()  {
 	conAdd([]int {1,2,3,4,5,6,7,8,9}, 2)
 	conAdd([]int {1,2,3,4,5,6,7,8,9}, 3)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 4)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 5)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 6)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 7)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 8)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 9)
-	conAdd([]int {1,2,3,4,5,6,7,8,9}, 10)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 4)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 5)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 6)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 7)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 8)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 9)
+	//conAdd([]int {1,2,3,4,5,6,7,8,9}, 10)
 }

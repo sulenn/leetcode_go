@@ -2,29 +2,41 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"runtime"
+	"time"
 )
 
-func produceRand(wg *sync.WaitGroup,ch chan int)  {
-	defer wg.Done()
-	for i:=0; i<5 ; i++ {
-		ch <- i
-	}
-	close(ch)
+func main() {
+	go func() {
+		// 1 在这里需要你写算法
+		// 2 要求每秒钟调用一次proc函数
+		// 3 要求程序不能退出
+		//c := time.Tick(time.Second * 1)
+		//for range c {
+		//	fmt.Println(1)
+		//	defer func() {
+		//		if err := recover(); err != nil {
+		//			fmt.Println(err)
+		//		}
+		//	}()
+		//	proc()
+		//	fmt.Println(2)
+		//}
+		c := time.Tick(1 * time.Second)
+		for range c {
+			fmt.Printf("#goroutines: %d\n", runtime.NumGoroutine())
+			fmt.Println(1)
+				defer func() {
+					if err := recover(); err != nil {
+						fmt.Println(err)}}()
+				proc()
+			fmt.Println(2)
+		}
+	}()
+
+	select {}
 }
 
-func printChan(wg *sync.WaitGroup, ch chan int)  {
-	defer wg.Done()
-	for v := range ch{
-		fmt.Println(v)
-	}
-}
-
-func main()  {
-	ch := make(chan int, 1)
-	wg := &sync.WaitGroup{}
-	wg.Add(2)
-	go produceRand(wg, ch)
-	go printChan(wg, ch)
-	wg.Wait()
+func proc() {
+	panic("ok")
 }
