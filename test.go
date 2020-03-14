@@ -1,28 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
-type Employee struct {
-	Name string
-	Age int
-}
+var wg sync.WaitGroup
+
 func main() {
-	m := map[string]*Employee{}
-	workers := []Employee{
-{
-	"Michcle",
-	30,
-},
-{
-	"Nick",
-	35,
-},
+	wg.Add(4)
+	play := make(chan int)
+	for i:=0; i<4; i++ {
+		go run(play)
+	}
+	play <- 0
+	wg.Wait()
+
 }
-	for _, worker := range workers {
-		m[worker.Name] = &worker
-}
-for k, v := range m {
-	fmt.Println(k)
-	fmt.Println(v)
-}
+
+func run(player chan int)  {
+	defer wg.Done()
+	num := <- player
+	fmt.Println("运动员 ", num+1, " 开始跑")
+	if num == 3 {
+		close(player)
+		return
+	}
+	player <- num+1
 }
