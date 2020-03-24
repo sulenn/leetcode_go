@@ -9,10 +9,10 @@ import "fmt"
  */
 func DistanceToHigher( height []int ) []int {
 	result := make([]int, len(height))
-	p2 := len(height)-1
+	p2 := len(height)-1  // 用于指向队列前方比我高的人
 	for i:=len(height)-1; i>=0; i--  {
-		p2 = i
-		for p2 >=0 && height[p2] <= height[i] {
+		p2 = i  // 每次都需要重新遍历
+		for p2 >=0 && height[p2] <= height[i] {   // 找前面最高的人
 			p2--
 		}
 		if p2 == -1 {
