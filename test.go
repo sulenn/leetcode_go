@@ -2,29 +2,36 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"io"
 )
 
-var wg sync.WaitGroup
-
 func main() {
-	wg.Add(4)
-	play := make(chan int)
-	for i:=0; i<4; i++ {
-		go run(play)
+	var str string
+	var res int
+	for {
+		_, err := fmt.Scanf("%s", &str)
+		if err == io.EOF {
+			break
+		} else {
+			res = way(str)
+			fmt.Println(res)
+		}
 	}
-	play <- 0
-	wg.Wait()
-
 }
 
-func run(player chan int)  {
-	defer wg.Done()
-	num := <- player
-	fmt.Println("运动员 ", num+1, " 开始跑")
-	if num == 3 {
-		close(player)
-		return
+func way(str string) int {
+	dic := make(map[string]struct{})
+	cur := 0
+	for i:=0;i <len(str);i++ {
+		if str[cur] != str[i] {
+			cur = i
+		}
+		if _,ok:= dic[str[cur:i+1]]; !ok {
+			dic[str[cur:i+1]] = struct{}{}
+		}
 	}
-	player <- num+1
+	if _,ok:= dic[str[cur:]]; !ok {
+		dic[str[cur:]] = struct{}{}
+	}
+	return len(dic)
 }
