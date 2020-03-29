@@ -1,40 +1,21 @@
 package main
-
 import (
 	"fmt"
-	"io"
+	"sync"
 )
-
-func main() {
-	var str string
-	for {
-		_, err := fmt.Scanln(&str)
-		if err == io.EOF {
-			break
-		}
-		fmt.Println(solution1(str))
-	}
+type MyMutex struct {
+	count int
+	sync.Mutex
 }
+func main() {
+	var mu MyMutex
+	mu.Lock()
 
-func solution1(str string) int {
-	if len(str) == 0{return 0}
-	arr := []rune(str)
-	result :=0
-	start := 0
-	dic := make(map[rune]int)
-	for i:=0; i<len(arr); i++ {
-		if arr[i] != arr[start]  {
-			if i-start > dic[arr[start]] {
-				dic[arr[start]] = i-start
-			}
-			start = i
-		}
-	}
-	if len(arr)-start > dic[arr[start]] {
-		dic[arr[start]] = len(arr)-start
-	}
-	for _, v := range dic {
-		result += v
-	}
-	return result
+	mu.count++
+	var mu2 = mu
+	mu.Unlock()
+	//mu2.Lock()
+	mu2.count++
+	mu2.Unlock()
+	fmt.Println(mu.count, mu2.count)
 }
