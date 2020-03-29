@@ -1,11 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+)
 
 func main() {
-	test := []int {1,2,3,4,5,6,7}
-	for _, v:= range test{
-		test = append(test, v)
+	var str string
+	for {
+		_, err := fmt.Scanln(&str)
+		if err == io.EOF {
+			break
+		}
+		fmt.Println(solution1(str))
 	}
-	fmt.Println(test)
+}
+
+func solution1(str string) int {
+	if len(str) == 0{return 0}
+	arr := []rune(str)
+	result :=0
+	start := 0
+	dic := make(map[rune]int)
+	for i:=0; i<len(arr); i++ {
+		if arr[i] != arr[start]  {
+			if i-start > dic[arr[start]] {
+				dic[arr[start]] = i-start
+			}
+			start = i
+		}
+	}
+	if len(arr)-start > dic[arr[start]] {
+		dic[arr[start]] = len(arr)-start
+	}
+	for _, v := range dic {
+		result += v
+	}
+	return result
 }
