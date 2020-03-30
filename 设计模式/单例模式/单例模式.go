@@ -1,4 +1,4 @@
-package main
+package 单例模式
 
 import "sync"
 

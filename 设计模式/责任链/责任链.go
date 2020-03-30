@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//参考：https://blog.csdn.net/cloudUncle/article/details/84865967
+
 type Handler interface {
 	SetNext(handler Handler)  // 设置下一个实例
 	HandleRequest(t int)  // 处理请求
