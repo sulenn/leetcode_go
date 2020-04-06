@@ -4,6 +4,10 @@ import "fmt"
 
 //思路：字典存储key/value值，Caches中存放key操作次数
 //同时Caches中key从左到右的顺序满足最不经常使用和最少使用原则
+
+//O(1)的解决方法可以参考：https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/
+//哈希表 + 双向链表
+
 type LFUCache struct {
 	Dic map[int]int
 	Caches []Cache
