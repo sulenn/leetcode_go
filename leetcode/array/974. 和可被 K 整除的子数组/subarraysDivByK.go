@@ -2,6 +2,7 @@ package main
 
 //https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/
 
+//数组前缀和，参考：https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/solution/he-ke-bei-kzheng-chu-de-zi-shu-zu-by-lenn123/
 func subarraysDivByK(A []int, K int) int {
 	sum := 0
 	dic := make(map[int]int)

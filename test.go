@@ -1,31 +1,27 @@
 package main
 
-import (
-	"fmt"
-	"reflect"
-)
+import "fmt"
+
+type name struct {
+	arr []int
+}
+
+func Construc(nums []int) *name {
+	return &name{nums}
+}
+
+func (this *name) add(num int)  {
+	//test := this.arr
+	this.arr = append(this.arr, num)
+	//test = append(test, num)
+}
 
 func main() {
-	test := "123"
-	arr := []rune(test)
-	fmt.Println(arr)
-	var num int = 1
-	fmt.Println(arr[0]==1+'0')
-	fmt.Println(reflect.TypeOf(arr[0]))
-	fmt.Println(reflect.TypeOf(1+'0'))
-	fmt.Println(reflect.TypeOf('0'))
-	fmt.Println(reflect.TypeOf(test[1]))
-	fmt.Println(test[1]=='2')
-	fmt.Println(test[1]==50)
-	fmt.Println(arr[1]==50)
-	fmt.Println('2'==50)
-	var num1 int = 50
-	//fmt.Println(test[1]==num1)
-	//fmt.Println(arr[1]==num1)
-	fmt.Println('2'==num1)
-	//fmt.Println(arr[0]==num+'0')
-	fmt.Println(num+'0')
-	fmt.Println(reflect.TypeOf(num+'0'))
-	fmt.Println(string(num+'0'))
-	fmt.Println(string(49))
+	//fmt.Println(commonPre([]string {"flower","flow","flight"}))
+	//fmt.Println(commonPre([]string {"dog","racecar","car"}))
+	//fmt.Println(time.Now().Unix())
+	obj := Construc([]int{1,2,3,4,5,6,7})
+	fmt.Println(obj.arr)
+	obj.add(9)
+	fmt.Println(obj.arr)
 }
