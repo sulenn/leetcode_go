@@ -20,8 +20,7 @@ func main() {
 	//fmt.Println(commonPre([]string {"flower","flow","flight"}))
 	//fmt.Println(commonPre([]string {"dog","racecar","car"}))
 	//fmt.Println(time.Now().Unix())
-	obj := Construc([]int{1,2,3,4,5,6,7})
-	fmt.Println(obj.arr)
-	obj.add(9)
-	fmt.Println(obj.arr)
+	var a string
+	fmt.Scanln(&a)
+	fmt.Println(a)
 }
