@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type name struct {
 	arr []int
@@ -37,4 +40,5 @@ func main() {
 	fmt.Println(test)
 	var test1 = make([]string, 0)
 	fmt.Println(test1)
+	strings.Repeat()
 }
