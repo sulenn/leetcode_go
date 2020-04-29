@@ -19,9 +19,6 @@ func main() {
 			fmt.Println(m)
 			continue
 		}
-		//if arr[1] > arr[0] {
-		//	arr[1], arr[0] = arr[0], arr[1]
-		//}
 		count := 0
 		num := m
 		max := arr[0]
