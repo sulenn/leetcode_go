@@ -2,6 +2,8 @@ package main
 
 //https://leetcode-cn.com/problems/out-of-boundary-paths/
 
+//该解法更好，https://leetcode-cn.com/problems/out-of-boundary-paths/solution/c-dong-tai-gui-hua-by-subshall-4/
+//从外界开始向矩阵里面扩散
 func findPaths(m int, n int, N int, i int, j int) int {
 	ballMoveArr := make([][]int, m)
 	for x:=0; x<m; x++ {
