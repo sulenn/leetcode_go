@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 const (
 	Byte FileSize = 1 << (iota * 10)
@@ -15,4 +17,5 @@ type FileSize int64
 func main() {
 	fmt.Println(Byte)
 	fmt.Println(KiByte)
+
 }
