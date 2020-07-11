@@ -10,15 +10,15 @@ import (
 //数字转字符串，排序后转数字
 func lexicalOrder(n int) []int {
 	str := make([]string, n)
-	for i:=0 ;i<n; i++ {
-		str[i] = strconv.Itoa(i+1)
+	for i := 0; i < n; i++ {
+		str[i] = strconv.Itoa(i + 1)
 	}
 	sort.Strings(str)
 	result := make([]int, n)
-	for i:=0; i<n; i++ {
-		result[i],_ = strconv.Atoi(str[i])
+	for i := 0; i < n; i++ {
+		result[i], _ = strconv.Atoi(str[i])
 	}
-	return  result
+	return result
 }
 
 //func lexicalOrder(n int) []int {
@@ -38,7 +38,7 @@ func lexicalOrder(n int) []int {
 
 func pow(num int) int {
 	result := 1
-	for i:=0; i<num; i++ {
+	for i := 0; i < num; i++ {
 		result *= 10
 	}
 	return result

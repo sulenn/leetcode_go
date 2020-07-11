@@ -6,5 +6,5 @@ import (
 )
 
 func Test_maxValue(T *testing.T) {
-	fmt.Println(maxValue([][]int {{1,2,5},{3,2,1}}))
+	fmt.Println(maxValue([][]int{{1, 2, 5}, {3, 2, 1}}))
 }

@@ -63,13 +63,17 @@ package main
 
 //最大公约数
 func canMeasureWater(x int, y int, z int) bool {
-	if x+y < z {return false}
-	if x == 0|| y == 0 {return x==z || y==z}
-	if x>y {x,y = y,x}
+	if x+y < z {
+		return false
+	}
+	if x == 0 || y == 0 {
+		return x == z || y == z
+	}
+	if x > y {
+		x, y = y, x
+	}
 	for y%x != 0 {
-		y,x = x, y%x
+		y, x = x, y%x
 	}
 	return z%x == 0
 }
-
-

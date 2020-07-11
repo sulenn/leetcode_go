@@ -3,10 +3,12 @@ package main
 //https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/
 
 func validateStackSequences(pushed []int, popped []int) bool {
-	if len(pushed) != len(popped) {return false}
-	pushedStack := []int {}   // 模拟入栈
+	if len(pushed) != len(popped) {
+		return false
+	}
+	pushedStack := []int{} // 模拟入栈
 	poppedStartPoint := 0
-	for i:=0; i<len(pushed); i++ {
+	for i := 0; i < len(pushed); i++ {
 		if pushed[i] == popped[poppedStartPoint] {
 			poppedStartPoint++
 			for len(pushedStack) != 0 {
@@ -14,11 +16,11 @@ func validateStackSequences(pushed []int, popped []int) bool {
 					pushedStack = pushedStack[:len(pushedStack)-1]
 					poppedStartPoint++
 				} else {
-						break
+					break
 				}
 			}
 		} else {
-			pushedStack = append(pushedStack,pushed[i])
+			pushedStack = append(pushedStack, pushed[i])
 		}
 	}
 	for len(pushedStack) != 0 {

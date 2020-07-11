@@ -6,6 +6,6 @@ import (
 )
 
 func Test_distributeCandies(T *testing.T) {
-	fmt.Println(distributeCandies(7,4 ))
-	fmt.Println(distributeCandies(10,3 ))
+	fmt.Println(distributeCandies(7, 4))
+	fmt.Println(distributeCandies(10, 3))
 }

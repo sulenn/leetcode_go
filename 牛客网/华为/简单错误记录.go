@@ -20,7 +20,7 @@ import (
 //}
 
 func main() {
-	errorArr := []string {}
+	errorArr := []string{}
 	errorMap := make(map[string]int)
 	for {
 		filePath := ""
@@ -29,14 +29,14 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		if strings.Contains(filePath, "\\") {   //保留文件名
+		if strings.Contains(filePath, "\\") { //保留文件名
 			filePathArr := strings.Split(filePath, "\\")
 			filePath = filePathArr[len(filePathArr)-1]
 		}
-		if len(filePath) > 16 {  // 取文件后16位
+		if len(filePath) > 16 { // 取文件后16位
 			filePath = filePath[len(filePath)-16:]
 		}
-		if _,ok := errorMap[filePath+" "+line]; ok {  // 累加
+		if _, ok := errorMap[filePath+" "+line]; ok { // 累加
 			errorMap[filePath+" "+line]++
 		} else {
 			errorArr = append(errorArr, filePath+" "+line)
@@ -46,15 +46,15 @@ func main() {
 	printArr(errorArr, errorMap)
 }
 
-func printArr(errorArr []string, errorMap map[string]int)  {
-	for i:=0 ;i<8; i++ {  // 数量最多的前8个错
+func printArr(errorArr []string, errorMap map[string]int) {
+	for i := 0; i < 8; i++ { // 数量最多的前8个错
 		max := 0
-		for j:=1; j<len(errorArr); j++ {
+		for j := 1; j < len(errorArr); j++ {
 			if errorMap[errorArr[j]] > errorMap[errorArr[max]] {
 				max = j
 			}
 		}
-		fmt.Println(errorArr[max]+" "+strconv.Itoa(errorMap[errorArr[max]]))
+		fmt.Println(errorArr[max] + " " + strconv.Itoa(errorMap[errorArr[max]]))
 		errorArr = append(errorArr[:max], errorArr[max+1:]...)
 	}
 }

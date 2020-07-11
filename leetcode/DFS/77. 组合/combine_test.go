@@ -7,7 +7,7 @@ import (
 
 //https://leetcode-cn.com/problems/combinations/
 
-func Test_combine(T *testing.T)  {
+func Test_combine(T *testing.T) {
 	//fmt.Println(combine(4,2))
-	fmt.Println(combine(5,4))
+	fmt.Println(combine(5, 4))
 }

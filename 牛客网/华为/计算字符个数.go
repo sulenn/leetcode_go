@@ -16,7 +16,7 @@ func main() {
 			break
 		}
 		result := 0
-		for i:=0; i<len(line1); i++ {
+		for i := 0; i < len(line1); i++ {
 			if line1[i] == line2[0] || line1[i]+'A'-'a' == line2[0] || line1[i]+'a'-'A' == line2[0] {
 				result++
 			}

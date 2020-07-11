@@ -21,17 +21,19 @@ func searchMatrix(matrix [][]int, target int) bool {
 	leftDownRow := row - 1
 	leftDownCol := 0
 	for leftDownRow >= 0 && leftDownCol < col {
-		if matrix[leftDownRow][leftDownCol] == target {return true}
+		if matrix[leftDownRow][leftDownCol] == target {
+			return true
+		}
 		if matrix[leftDownRow][leftDownCol] > target {
 			leftDownRow--
 		} else {
-				leftDownCol++
+			leftDownCol++
 		}
 	}
 	return false
 }
 
 func main() {
-	fmt.Println(searchMatrix([][]int{{1,   4,  7, 11, 15},{2,   5,  8, 12, 19},{3,   6,  9, 16, 22},{10, 13, 14, 17, 24},{18, 21, 23, 26, 30}},5))
-	fmt.Println(searchMatrix([][]int{{1,   4,  7, 11, 15},{2,   5,  8, 12, 19},{3,   6,  9, 16, 22},{10, 13, 14, 17, 24},{18, 21, 23, 26, 30}},20))
+	fmt.Println(searchMatrix([][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}}, 5))
+	fmt.Println(searchMatrix([][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}}, 20))
 }

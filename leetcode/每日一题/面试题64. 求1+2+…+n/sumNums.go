@@ -7,7 +7,7 @@ func sumNums(n int) int {
 	res := 0
 	var recursive func(n int) int
 	recursive = func(n int) int {
-		_ = n>1 && recursive(n-1) > 0
+		_ = n > 1 && recursive(n-1) > 0
 		res += n
 		return res
 	}

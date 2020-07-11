@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-
 type Map struct {
 	c   map[string]*entry
 	rmx *sync.RWMutex
@@ -27,7 +26,7 @@ func (m *Map) Out(key string, val interface{}) {
 		e.isExist = true
 		close(e.ch)
 	} else {
-		e = &entry{ch: make(chan struct{}), isExist: true,value:val}
+		e = &entry{ch: make(chan struct{}), isExist: true, value: val}
 		m.c[key] = e
 		close(e.ch)
 	}
@@ -75,5 +74,5 @@ func main() {
 	go obj.Out("qiubin", "enhen")
 	go obj.Rd("qiubi", tim)
 	//go obj.Out("qiubi", "enhen")
-	time.Sleep(tim*2)
+	time.Sleep(tim * 2)
 }

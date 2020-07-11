@@ -9,7 +9,7 @@ import (
 
 func findKthLargest(nums []int, k int) int {
 	sort.Ints(nums)
-	return nums[len(nums) - k]
+	return nums[len(nums)-k]
 }
 
 ////最大值沉底排序
@@ -28,6 +28,6 @@ func findKthLargest(nums []int, k int) int {
 //}
 
 func main() {
-	fmt.Println(findKthLargest([]int {3,2,1,5,6,4}, 2))
-	fmt.Println(findKthLargest([]int {3,2,3,1,2,4,5,5,6}, 4))
+	fmt.Println(findKthLargest([]int{3, 2, 1, 5, 6, 4}, 2))
+	fmt.Println(findKthLargest([]int{3, 2, 3, 1, 2, 4, 5, 5, 6}, 4))
 }

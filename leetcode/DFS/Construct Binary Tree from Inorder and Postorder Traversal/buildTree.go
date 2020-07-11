@@ -14,7 +14,7 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 		return nil
 	}
 	inorderLen := len(inorder)
-	root := TreeNode{Val:postorder[inorderLen-1]}
+	root := TreeNode{Val: postorder[inorderLen-1]}
 	locate := 0
 	for k, v := range inorder {
 		if v == postorder[inorderLen-1] {

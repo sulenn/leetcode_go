@@ -8,7 +8,7 @@ import "fmt"
 func checkIfExist(arr []int) bool {
 	numMap := make(map[int]bool)
 	length := len(arr)
-	for i:=0; i<length; i++{  // 正向，0<=i<j<=length-1，arr[i]*2==arr[j]
+	for i := 0; i < length; i++ { // 正向，0<=i<j<=length-1，arr[i]*2==arr[j]
 		if _, ok := numMap[arr[i]*2]; ok {
 			return true
 		} else {
@@ -16,7 +16,7 @@ func checkIfExist(arr []int) bool {
 		}
 	}
 	numMap = make(map[int]bool)
-	for i:= length-1; i>=0; i-- {   // 反向,arr[j]*2==arr[i]
+	for i := length - 1; i >= 0; i-- { // 反向,arr[j]*2==arr[i]
 		if _, ok := numMap[arr[i]*2]; ok {
 			return true
 		} else {
@@ -27,7 +27,7 @@ func checkIfExist(arr []int) bool {
 }
 
 func main() {
-	fmt.Println(checkIfExist([]int {10,2,5,3}))
-	fmt.Println(checkIfExist([]int {7,1,14,11}))
-	fmt.Println(checkIfExist([]int {3,1,7,11}))
+	fmt.Println(checkIfExist([]int{10, 2, 5, 3}))
+	fmt.Println(checkIfExist([]int{7, 1, 14, 11}))
+	fmt.Println(checkIfExist([]int{3, 1, 7, 11}))
 }

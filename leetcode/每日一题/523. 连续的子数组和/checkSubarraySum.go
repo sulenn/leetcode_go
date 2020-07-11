@@ -7,12 +7,12 @@ func checkSubarraySum(nums []int, k int) bool {
 	cache := 0
 	dic := make(map[int]struct{})
 	sum := 0
-	for i:=0; i<len(nums); i++ {
+	for i := 0; i < len(nums); i++ {
 		sum += nums[i]
 		if k != 0 {
 			sum %= k
 		}
-		if _,ok := dic[sum]; ok {
+		if _, ok := dic[sum]; ok {
 			return true
 		}
 		dic[cache] = struct{}{}

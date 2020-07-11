@@ -7,9 +7,9 @@ func removeDuplicates(nums []int) int {
 		return 0
 	}
 	length := 0
-	for _  , elem := range nums {
+	for _, elem := range nums {
 		if nums[length] != elem {
-			nums[length + 1] = elem
+			nums[length+1] = elem
 			length++
 		}
 	}
@@ -17,6 +17,6 @@ func removeDuplicates(nums []int) int {
 }
 
 func main() {
-	fmt.Println(removeDuplicates([]int{1,1,2}))
-	fmt.Println(removeDuplicates([]int{0,0,1,1,1,2,2,3,3,4}))
+	fmt.Println(removeDuplicates([]int{1, 1, 2}))
+	fmt.Println(removeDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}))
 }

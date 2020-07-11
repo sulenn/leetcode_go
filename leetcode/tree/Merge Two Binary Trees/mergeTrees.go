@@ -3,8 +3,8 @@ package main
 //https://leetcode-cn.com/problems/merge-two-binary-trees/
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -27,5 +27,5 @@ func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 }
 
 func main() {
-	
+
 }

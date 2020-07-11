@@ -17,7 +17,7 @@ import (
 //	return arr
 //}
 
-func add(mu *sync.WaitGroup, num []int, ch chan int){
+func add(mu *sync.WaitGroup, num []int, ch chan int) {
 	result := 0
 	for _, value := range num {
 		result += value
@@ -28,21 +28,23 @@ func add(mu *sync.WaitGroup, num []int, ch chan int){
 
 //fun 和 add 为并发求和
 func fun(num []int) int {
-	if len(num) == 0 {return 0}
+	if len(num) == 0 {
+		return 0
+	}
 	mu := &sync.WaitGroup{}
 	mu.Add(2)
 	sum1 := make(chan int, 1)
 	sum2 := make(chan int, 1)
 	go add(mu, num[:len(num)/2], sum1)
 	go add(mu, num[len(num)/2:], sum2)
-	sum3 := <- sum1
-	sum4 := <- sum2
+	sum3 := <-sum1
+	sum4 := <-sum2
 	mu.Wait()
-	return sum3+sum4
+	return sum3 + sum4
 }
 
-func main()  {
-	fmt.Println(fun([]int {1,2,3,4,5,6,7,8}))
+func main() {
+	fmt.Println(fun([]int{1, 2, 3, 4, 5, 6, 7, 8}))
 }
 
 //type Node struct {

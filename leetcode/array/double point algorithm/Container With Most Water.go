@@ -12,7 +12,7 @@ func maxArea(height []int) int {
 			if tempArea > maxArea {
 				maxArea = tempArea
 			}
-			backPoint --
+			backPoint--
 		} else {
 			tempArea := height[frontPoint] * (backPoint - frontPoint)
 			if tempArea > maxArea {
@@ -25,5 +25,5 @@ func maxArea(height []int) int {
 }
 
 func main() {
-	fmt.Println(maxArea([]int {1,8,6,2,5,4,8,3,7}))
+	fmt.Println(maxArea([]int{1, 8, 6, 2, 5, 4, 8, 3, 7}))
 }

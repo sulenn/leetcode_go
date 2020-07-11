@@ -16,7 +16,7 @@ func main() {
 	for input.Scan() {
 		a, _ = strconv.Atoi(strings.Split(input.Text(), " ")[0])
 		b, _ = strconv.Atoi(strings.Split(input.Text(), " ")[1])
-		fmt.Println(a+b)
+		fmt.Println(a + b)
 	}
 }
 

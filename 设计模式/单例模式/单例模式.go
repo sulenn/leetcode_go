@@ -37,9 +37,11 @@ import "sync"
 
 //双重锁
 //避免了每次加锁，提高代码效率。如果实例已被创建则不需要加锁
-type singleton struct {}
+type singleton struct{}
+
 var sin *singleton
 var mu sync.Mutex
+
 func GetIns() *singleton {
 	if sin == nil {
 		mu.Lock()
@@ -50,4 +52,3 @@ func GetIns() *singleton {
 	}
 	return sin
 }
-

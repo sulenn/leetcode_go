@@ -5,8 +5,8 @@ import "fmt"
 //https://leetcode-cn.com/problems/diameter-of-binary-tree/
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -26,7 +26,7 @@ func recursive(root *TreeNode) int {
 	}
 	left := recursive(root.Left)
 	right := recursive(root.Right)
-	if left + right > result {
+	if left+right > result {
 		result = left + right
 	}
 	if left > right {
@@ -37,10 +37,10 @@ func recursive(root *TreeNode) int {
 }
 
 func main() {
-	var temp *TreeNode = &TreeNode{1,nil,nil}
-	temp.Left = &TreeNode{2,&TreeNode{4,nil,nil}, &TreeNode{5,nil,nil}}
-	temp.Right = &TreeNode{3,nil,nil}
-	temp1 := &TreeNode{1,nil,nil}
+	var temp *TreeNode = &TreeNode{1, nil, nil}
+	temp.Left = &TreeNode{2, &TreeNode{4, nil, nil}, &TreeNode{5, nil, nil}}
+	temp.Right = &TreeNode{3, nil, nil}
+	temp1 := &TreeNode{1, nil, nil}
 	fmt.Println(diameterOfBinaryTree(temp))
 	fmt.Println(diameterOfBinaryTree(temp1))
 }

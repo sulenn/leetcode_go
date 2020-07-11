@@ -9,28 +9,28 @@ func generateMatrix(n int) [][]int {
 	downRow := n - 1
 	leftLine := 0
 	rightLine := n - 1
-	count := 1  //计数器
-	result := make([][]int, n)    //申明 n 维数组
-	for i:=0 ; i<n; i++ {
+	count := 1                 //计数器
+	result := make([][]int, n) //申明 n 维数组
+	for i := 0; i < n; i++ {
 		result[i] = make([]int, n)
 	}
 	for downRow >= upRow {
-		for i:=leftLine; i <= rightLine; i++ {   // 上
+		for i := leftLine; i <= rightLine; i++ { // 上
 			result[upRow][i] = count
 			count++
 		}
 		upRow++
-		for i:=upRow; i <= downRow; i++ {  // 右
+		for i := upRow; i <= downRow; i++ { // 右
 			result[i][rightLine] = count
 			count++
 		}
 		rightLine--
-		for i:=rightLine; i >= leftLine; i-- {  // 下
+		for i := rightLine; i >= leftLine; i-- { // 下
 			result[downRow][i] = count
 			count++
 		}
 		downRow--
-		for i:= downRow; i >= upRow; i-- {  // 左
+		for i := downRow; i >= upRow; i-- { // 左
 			result[i][leftLine] = count
 			count++
 		}

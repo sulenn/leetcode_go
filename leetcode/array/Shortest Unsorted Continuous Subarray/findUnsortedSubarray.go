@@ -9,7 +9,7 @@ func findUnsortedSubarray(nums []int) int {
 	tail := len(nums) - 1
 	flag := false
 	for head < len(nums) {
-		for i := head+1; i < len(nums); i++ {
+		for i := head + 1; i < len(nums); i++ {
 			if nums[i] < nums[head] {
 				head--
 				flag = true
@@ -23,7 +23,7 @@ func findUnsortedSubarray(nums []int) int {
 	}
 	flag = false
 	for tail >= 0 {
-		for i:=tail - 1; i >= 0; i-- {
+		for i := tail - 1; i >= 0; i-- {
 			if nums[i] > nums[tail] {
 				tail++
 				flag = true
@@ -38,11 +38,11 @@ func findUnsortedSubarray(nums []int) int {
 	if tail <= head {
 		return 0
 	}
-	return tail - head -1
+	return tail - head - 1
 }
 
 func main() {
-	fmt.Println(findUnsortedSubarray([]int {2, 6, 4, 8, 10, 9, 15}))
-	fmt.Println(findUnsortedSubarray([]int {2}))
-	fmt.Println(findUnsortedSubarray([]int {}))
+	fmt.Println(findUnsortedSubarray([]int{2, 6, 4, 8, 10, 9, 15}))
+	fmt.Println(findUnsortedSubarray([]int{2}))
+	fmt.Println(findUnsortedSubarray([]int{}))
 }

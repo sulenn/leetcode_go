@@ -6,14 +6,14 @@ package main
 func dailyTemperatures(T []int) []int {
 	result := make([]int, len(T))
 	max := 0
-	for i:= len(T)-1; i>=0; i-- {
+	for i := len(T) - 1; i >= 0; i-- {
 		if T[i] >= max {
-			result[i]=0
+			result[i] = 0
 			max = T[i]
 		} else {
-			for j:=i+1; j<len(T); j++ {
+			for j := i + 1; j < len(T); j++ {
 				if T[j] > T[i] {
-					result[i] = j-i
+					result[i] = j - i
 					break
 				}
 			}

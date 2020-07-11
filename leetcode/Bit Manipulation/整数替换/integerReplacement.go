@@ -12,13 +12,14 @@ package main
 func integerReplacement(n int) int {
 	result := 0
 	for n != 1 {
-		if n & 1 == 0 {
-			n = n>>1
-		} else if n & 2 == 0 || n == 3 {
-				n--
-		} else {n++}
+		if n&1 == 0 {
+			n = n >> 1
+		} else if n&2 == 0 || n == 3 {
+			n--
+		} else {
+			n++
+		}
 		result++
 	}
 	return result
 }
-

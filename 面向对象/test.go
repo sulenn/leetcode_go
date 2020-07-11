@@ -17,7 +17,7 @@ func (this test1) address() string {
 	return "长沙"
 }
 
-type test2 struct {}
+type test2 struct{}
 
 func (this test2) name() string {
 	return "小猫"

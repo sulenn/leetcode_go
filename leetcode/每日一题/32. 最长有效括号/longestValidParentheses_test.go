@@ -5,6 +5,6 @@ import (
 	"testing"
 )
 
-func Test_longestValidParentheses(T *testing.T)  {
+func Test_longestValidParentheses(T *testing.T) {
 	fmt.Println(longestValidParentheses(")()())"))
 }

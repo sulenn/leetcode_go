@@ -7,22 +7,22 @@ import (
 //https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
 
 //用字典记录每个字符出现的位置，滑动窗口
-func lengthOfLongestSubstring(s string)int {
-	result,maxRepeatIndex := 0,0
+func lengthOfLongestSubstring(s string) int {
+	result, maxRepeatIndex := 0, 0
 	var m = map[string]int{}
 	for i := 0; len(s) > i; i++ {
 		if _, ok := m[string(s[i])]; ok {
 			// 首先记住如果出现重复距离重复最近的 位置
-			maxRepeatIndex = max(maxRepeatIndex,m[string(s[i])])
+			maxRepeatIndex = max(maxRepeatIndex, m[string(s[i])])
 		}
 		// 更新每次重复数字的最大值
-		result = max(i - maxRepeatIndex + 1 , result)
+		result = max(i-maxRepeatIndex+1, result)
 		m[string(s[i])] = i + 1
 	}
 	fmt.Println(result)
 	return result
 }
-func max(a,b int)int{
+func max(a, b int) int {
 	if a < b {
 		return b
 	}

@@ -15,7 +15,7 @@ func main() {
 		str := input.Text()
 		strArr := strings.Split(str, " ")
 		result := ""
-		for i:=len(strArr)-1; i>=0; i--{
+		for i := len(strArr) - 1; i >= 0; i-- {
 			result += " " + strArr[i]
 		}
 		fmt.Println(result[1:])

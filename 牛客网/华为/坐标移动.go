@@ -15,10 +15,10 @@ func main() {
 	for input.Scan() {
 		str := input.Text()
 		arr := strings.Split(str, ";")
-		location := []int {0,0}
+		location := []int{0, 0}
 		for _, v := range arr {
 			if judge1(v) {
-				num, _ := strconv.Atoi(v[1:])   // 只考虑了正数
+				num, _ := strconv.Atoi(v[1:]) // 只考虑了正数
 				if v[0] == 'A' {
 					location[0] -= num
 				}
@@ -33,16 +33,18 @@ func main() {
 				}
 			}
 		}
-		fmt.Println(strconv.Itoa(location[0])+","+strconv.Itoa(location[1]))
+		fmt.Println(strconv.Itoa(location[0]) + "," + strconv.Itoa(location[1]))
 	}
 }
 
-func judge1(s string) bool {  // 判断每一个操作是否合法，只考虑了正数
-	if len(s) < 2 || len(s) >3 {return false}
+func judge1(s string) bool { // 判断每一个操作是否合法，只考虑了正数
+	if len(s) < 2 || len(s) > 3 {
+		return false
+	}
 	if s[0] == 'A' || s[0] == 'D' || s[0] == 'W' || s[0] == 'S' {
-		if s[1] >= '0' && s[1] <='9' && len(s) == 2 {
+		if s[1] >= '0' && s[1] <= '9' && len(s) == 2 {
 			return true
-		} else if s[1] >= '0' && s[1] <='9' && s[2] >= '0' && s[2] <='9' {
+		} else if s[1] >= '0' && s[1] <= '9' && s[2] >= '0' && s[2] <= '9' {
 			return true
 		}
 	}

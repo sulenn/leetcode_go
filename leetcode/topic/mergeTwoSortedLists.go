@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type ListNode struct {
-     Val int
-     Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
@@ -14,8 +14,8 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil {
 		return l1
 	}
-	l3 := &ListNode{0,nil}    //创建第三个链表过渡
-	l3HeadPointer := l3    //指向链表头
+	l3 := &ListNode{0, nil} //创建第三个链表过渡
+	l3HeadPointer := l3     //指向链表头
 	for l1 != nil && l2 != nil {
 		if l1.Val <= l2.Val {
 			l3.Next = l1

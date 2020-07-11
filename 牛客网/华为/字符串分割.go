@@ -14,20 +14,20 @@ func main() {
 			break
 		}
 		strs := make([]string, num)
-		for i:=0 ;i<num; i++ {
+		for i := 0; i < num; i++ {
 			fmt.Scan(&str)
 			strs[i] = str
 		}
 		newStrs := solution(strs)
-		for i:=0; i<len(newStrs); i++ {
+		for i := 0; i < len(newStrs); i++ {
 			fmt.Println(newStrs[i])
 		}
 	}
 }
 
 func solution(strs []string) []string {
-	newStrs := make([]string,0)
-	for i:=0; i<len(strs); i++ {
+	newStrs := make([]string, 0)
+	for i := 0; i < len(strs); i++ {
 		curStrs := make([]string, 0)
 		for len(strs[i]) > 0 {
 			var str = ""
@@ -39,7 +39,7 @@ func solution(strs []string) []string {
 				for len(str) != 8 {
 					str += "0"
 				}
-				strs[i]=""
+				strs[i] = ""
 			}
 			curStrs = append(curStrs, str)
 		}

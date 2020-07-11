@@ -2,7 +2,7 @@ package main
 
 //https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
 
-	//二分法：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/jiang-qi-zhuan-wei-zhao-liang-ge-you-xu-shu-zu-de-/
+//二分法：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/jiang-qi-zhuan-wei-zhao-liang-ge-you-xu-shu-zu-de-/
 
 //func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 //	newNums := []int {}   // 新排序切片

@@ -1,12 +1,14 @@
 package main
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func removeDuplicateNodes(head *ListNode) *ListNode {
-	if head == nil {return head}
+	if head == nil {
+		return head
+	}
 	valueDic := make(map[int]struct{})
 	curNode := head
 	valueDic[curNode.Val] = struct{}{}

@@ -15,8 +15,8 @@ func main() {
 			break
 		}
 		dic := make(map[byte]struct{})
-		arr := []byte {}
-		for i:=0; i < len(input); i++ {
+		arr := []byte{}
+		for i := 0; i < len(input); i++ {
 			if _, ok := dic[input[i]]; !ok {
 				dic[input[i]] = struct{}{}
 				arr = append(arr, input[i])

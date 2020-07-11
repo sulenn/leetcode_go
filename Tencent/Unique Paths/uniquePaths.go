@@ -8,17 +8,17 @@ func uniquePaths(m int, n int) int {
 	if m <= 1 || n <= 1 {
 		return 1
 	}
-	matrix := make([][]int, m)   //二维切片
+	matrix := make([][]int, m) //二维切片
 	for i := range matrix {
 		matrix[i] = make([]int, n)
 	}
-	for i := range matrix {   //第一列全赋值为 0
+	for i := range matrix { //第一列全赋值为 0
 		matrix[i][0] = 1
 	}
-	for i:= range matrix[0] {   //第一行全赋值为 0
+	for i := range matrix[0] { //第一行全赋值为 0
 		matrix[0][i] = 1
 	}
-	for i := 1; i< m; i++{    //动态规划，matrix[m][n] = matrix[m-1][n] + matrix[m][n-1]
+	for i := 1; i < m; i++ { //动态规划，matrix[m][n] = matrix[m-1][n] + matrix[m][n-1]
 		for j := 1; j < n; j++ {
 			matrix[i][j] = matrix[i-1][j] + matrix[i][j-1]
 		}

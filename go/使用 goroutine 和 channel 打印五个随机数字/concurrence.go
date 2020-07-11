@@ -20,15 +20,15 @@ func main() {
 }
 
 func genetateRandInt(c chan int) {
-	for i:=0; i<5;i++ {
+	for i := 0; i < 5; i++ {
 		c <- rand.Intn(10)
 	}
 	wg.Done()
 }
 
-func printInt(c chan int)  {
-	for i:=0; i < 5; i++ {
-		fmt.Println(<- c)
+func printInt(c chan int) {
+	for i := 0; i < 5; i++ {
+		fmt.Println(<-c)
 	}
 	wg.Done()
 }

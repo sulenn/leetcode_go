@@ -6,19 +6,19 @@ import (
 
 func plusOne(digits []int) []int {
 	reverseFunc := func(digits []int) []int {
-		for i := 0 ;i < len(digits)/2;i++ {
-		digits[i] , digits[len(digits)-i-1] = digits[len(digits)-i-1], digits[i]
-	}
+		for i := 0; i < len(digits)/2; i++ {
+			digits[i], digits[len(digits)-i-1] = digits[len(digits)-i-1], digits[i]
+		}
 		return digits
 	}
 
-	if digits[len(digits) - 1] + 1 != 10 {
-		digits[len(digits) - 1]++
+	if digits[len(digits)-1]+1 != 10 {
+		digits[len(digits)-1]++
 		return digits
 	} else {
 		flag := 1
 		digits = reverseFunc(digits)
-		for i := 0;i < len(digits);i++ {
+		for i := 0; i < len(digits); i++ {
 			sum := flag + digits[i]
 			if sum == 10 {
 				digits[i] = 0
@@ -35,9 +35,7 @@ func plusOne(digits []int) []int {
 	}
 }
 
-
-
 func main() {
-	fmt.Println(plusOne([]int{1,2,3}))
-	fmt.Println(plusOne([]int{4,3,2,1}))
+	fmt.Println(plusOne([]int{1, 2, 3}))
+	fmt.Println(plusOne([]int{4, 3, 2, 1}))
 }

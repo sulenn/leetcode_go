@@ -7,8 +7,8 @@ import (
 //https://leetcode-cn.com/problems/convert-bst-to-greater-tree/
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -30,6 +30,6 @@ func recursive(root *TreeNode) {
 }
 
 func main() {
-	temp := &TreeNode{5,&TreeNode{2,nil,nil}, &TreeNode{13,nil,nil}}
+	temp := &TreeNode{5, &TreeNode{2, nil, nil}, &TreeNode{13, nil, nil}}
 	fmt.Println(convertBST(temp))
 }

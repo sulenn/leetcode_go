@@ -11,24 +11,28 @@ package main
 //dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
 //参考：https://leetcode-cn.com/problems/edit-distance/solution/jian-dan-dpmiao-dong-by-sweetiee/
 func minDistance(word1 string, word2 string) int {
-	if len(word1) == 0 {return len(word2)}
-	if len(word2) == 0 {return len(word1)}
-	arr := make([][]int, len(word1)+1)  // 初始化
-	for i:=0; i<len(word1)+1;i++ {
+	if len(word1) == 0 {
+		return len(word2)
+	}
+	if len(word2) == 0 {
+		return len(word1)
+	}
+	arr := make([][]int, len(word1)+1) // 初始化
+	for i := 0; i < len(word1)+1; i++ {
 		arr[i] = make([]int, len(word2)+1)
 	}
-	for i:=0; i<len(word1)+1; i++ {
+	for i := 0; i < len(word1)+1; i++ {
 		arr[i][0] = i
 	}
-	for j:=0; j<len(word2)+1; j++ {
+	for j := 0; j < len(word2)+1; j++ {
 		arr[0][j] = 0
 	}
-	for i:=1; i<len(word1)+1; i++ {
-		for j:=1; j<len(word2)+1;j++ {
-			if word1[i-1] == word2[j-1] {  // 状态转移
+	for i := 1; i < len(word1)+1; i++ {
+		for j := 1; j < len(word2)+1; j++ {
+			if word1[i-1] == word2[j-1] { // 状态转移
 				arr[i][j] = arr[i-1][j-1]
 			} else {
-				arr[i][j] = MinValue(arr[i-1][j-1],arr[i-1][j],arr[i][j-1])+1
+				arr[i][j] = MinValue(arr[i-1][j-1], arr[i-1][j], arr[i][j-1]) + 1
 			}
 		}
 	}

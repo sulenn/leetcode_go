@@ -12,15 +12,15 @@ func (h *myheap) Len() int {
 	return len(h.v)
 }
 
-func (h *myheap) Less(i,j int) bool {
+func (h *myheap) Less(i, j int) bool {
 	return h.v[i] > h.v[j]
 }
 
-func (h *myheap) Swap(i,j int) {
+func (h *myheap) Swap(i, j int) {
 	h.v[i], h.v[j] = h.v[j], h.v[i]
 }
 
-func (h *myheap) Push(v interface{})  {
+func (h *myheap) Push(v interface{}) {
 	h.v = append(h.v, v.(int))
 }
 
@@ -32,11 +32,11 @@ func (h *myheap) Pop() interface{} {
 
 func getLeastNumbers(arr []int, k int) []int {
 	if k == 0 {
-		return []int {}
+		return []int{}
 	}
 	h := &myheap{}
 	heap2.Init(h)
-	for _, v:= range arr {
+	for _, v := range arr {
 		if h.Len() != k {
 			heap2.Push(h, v)
 		} else if h.v[0] > v {

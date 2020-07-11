@@ -4,9 +4,11 @@ package main
 
 //深搜
 func generateParenthesis(n int) []string {
-	if n == 0 {return []string {}}
-	var dfs func(l,r int, str string)
-	result := []string {}
+	if n == 0 {
+		return []string{}
+	}
+	var dfs func(l, r int, str string)
+	result := []string{}
 	dfs = func(l, r int, str string) {
 		if l == 0 && r == 0 {
 			result = append(result, str)
@@ -18,6 +20,6 @@ func generateParenthesis(n int) []string {
 			dfs(l, r-1, str+")")
 		}
 	}
-	dfs(n,n,"")
+	dfs(n, n, "")
 	return result
 }

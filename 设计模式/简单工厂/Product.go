@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type Computer interface {   // 产品类，下面是产品类的三个子类
+type Computer interface { // 产品类，下面是产品类的三个子类
 	Brand()
 }
 
@@ -10,25 +10,25 @@ type Apple struct {
 	Name string
 }
 
-func (this *Apple) Brand()  {
+func (this *Apple) Brand() {
 	this.Name = "Apple"
-	fmt.Println("This Computer Brand is ",this.Name)
+	fmt.Println("This Computer Brand is ", this.Name)
 }
 
 type Huawei struct {
 	Name string
 }
 
-func (this *Huawei) Brand()  {
+func (this *Huawei) Brand() {
 	this.Name = "Huawei"
-	fmt.Println("This Computer Brand is ",this.Name)
+	fmt.Println("This Computer Brand is ", this.Name)
 }
 
 type Other struct {
 	Name string
 }
 
-func (this *Other) Brand()  {
+func (this *Other) Brand() {
 	this.Name = "Nothing"
-	fmt.Println("This Computer Brand is ",this.Name)
+	fmt.Println("This Computer Brand is ", this.Name)
 }

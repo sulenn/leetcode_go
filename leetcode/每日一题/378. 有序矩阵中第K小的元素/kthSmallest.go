@@ -10,32 +10,32 @@ func kthSmallest(matrix [][]int, k int) int {
 	num := 1
 	rLength := len(matrix)
 	cLength := len(matrix[0])
-	compareArr := [][]int {{0,1}, {1,0}}
+	compareArr := [][]int{{0, 1}, {1, 0}}
 	for num != k-1 {
 		minIndex := compare(matrix, compareArr)
 		x := compareArr[minIndex][0]
 		y := compareArr[minIndex][1]
 		compareArr = append(compareArr[:minIndex], compareArr[minIndex+1:]...)
 		if y == 0 && x != rLength-1 {
-			compareArr = append(compareArr, []int {x+1, y})
+			compareArr = append(compareArr, []int{x + 1, y})
 		}
 		if y != cLength-1 {
-			compareArr = append(compareArr, []int {x, y+1})
+			compareArr = append(compareArr, []int{x, y + 1})
 		}
 		num++
 	}
-	minIndex := compare(matrix, compareArr)    // compareArr 中最小的那个数就是第 k 小元素
+	minIndex := compare(matrix, compareArr) // compareArr 中最小的那个数就是第 k 小元素
 	x := compareArr[minIndex][0]
 	y := compareArr[minIndex][1]
 	return matrix[x][y]
 }
 
-func compare(matrix [][]int,compareArr [][]int) int {   // 返回数组中最小的数的索引
+func compare(matrix [][]int, compareArr [][]int) int { // 返回数组中最小的数的索引
 	if len(compareArr) == 0 {
 		return -1
 	}
 	min := 0
-	for i:=1; i<len(compareArr); i++ {
+	for i := 1; i < len(compareArr); i++ {
 		min_x := compareArr[min][0]
 		min_y := compareArr[min][1]
 		cur_x := compareArr[i][0]

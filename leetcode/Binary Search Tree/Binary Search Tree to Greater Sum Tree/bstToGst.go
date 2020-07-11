@@ -3,8 +3,8 @@ package main
 //https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -26,5 +26,5 @@ func bstToGst(root *TreeNode) *TreeNode {
 }
 
 func main() {
-	
+
 }

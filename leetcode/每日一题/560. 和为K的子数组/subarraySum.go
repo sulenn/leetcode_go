@@ -8,10 +8,12 @@ func subarraySum(nums []int, k int) int {
 	count := 0
 	sumsMap := make(map[int]int)
 	sum := 0
-	for i:=0; i<len(nums); i++ {
+	for i := 0; i < len(nums); i++ {
 		sum += nums[i]
-		if sum == k {count++}
-		if value, ok := sumsMap[sum - k]; ok {
+		if sum == k {
+			count++
+		}
+		if value, ok := sumsMap[sum-k]; ok {
 			count += value
 		}
 		sumsMap[sum]++

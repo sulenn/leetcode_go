@@ -8,10 +8,10 @@ import "fmt"
 func subsets(nums []int) [][]int {
 	//numLen := len(nums)
 	var result [][]int
-	result = append(result, []int {})
-	for _ ,v := range nums {
-		for _, v1 := range result{
-			result = append(result, append([]int {v}, v1...))
+	result = append(result, []int{})
+	for _, v := range nums {
+		for _, v1 := range result {
+			result = append(result, append([]int{v}, v1...))
 		}
 	}
 	return result
@@ -38,7 +38,5 @@ func subsets(nums []int) [][]int {
 
 func main() {
 	//print(subsets([]int {1,2,3}))
-	fmt.Println(subsets([]int {1,2,3}))
+	fmt.Println(subsets([]int{1, 2, 3}))
 }
-
-

@@ -19,8 +19,8 @@ func countNumbersWithUniqueDigits(n int) int {
 		return 1
 	}
 	result := 10
-	cul := 9 // 最高位不能为 0，所以9种可能
-	for i := 1; i < n && i < 10; i++ {  // 第二位可以为 0，也有9种可能。第三位8种可能
+	cul := 9                           // 最高位不能为 0，所以9种可能
+	for i := 1; i < n && i < 10; i++ { // 第二位可以为 0，也有9种可能。第三位8种可能
 		cul *= (10 - i)
 		result += cul
 	}

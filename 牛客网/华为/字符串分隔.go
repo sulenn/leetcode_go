@@ -14,9 +14,9 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		for i:=0; i<len(input); i+=8 {
-			if len(input) - i >= 8 {
-				fmt.Println(input[i:i+8])
+		for i := 0; i < len(input); i += 8 {
+			if len(input)-i >= 8 {
+				fmt.Println(input[i : i+8])
 			} else {
 				str := input[i:]
 				for len(str) != 8 {

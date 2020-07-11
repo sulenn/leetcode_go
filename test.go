@@ -11,7 +11,6 @@ const (
 	GiByte
 )
 
-
 type FileSize int64
 
 func main() {

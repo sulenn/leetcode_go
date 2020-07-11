@@ -3,9 +3,9 @@ package main
 //https://leetcode-cn.com/problems/distribute-coins-in-binary-tree/
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 //递归后序深搜
@@ -14,7 +14,9 @@ func distributeCoins(root *TreeNode) int {
 	result := 0
 	var recursive func(root *TreeNode) int
 	recursive = func(root *TreeNode) int {
-		if root == nil {return 0}
+		if root == nil {
+			return 0
+		}
 		left := recursive(root.Left)
 		right := recursive(root.Right)
 		result += abs(left) + abs(right)
@@ -25,7 +27,9 @@ func distributeCoins(root *TreeNode) int {
 }
 
 func abs(n int) int {
-	if n < 0 {return -n}
+	if n < 0 {
+		return -n
+	}
 	return n
 }
 

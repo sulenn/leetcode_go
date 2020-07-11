@@ -27,21 +27,23 @@ import "fmt"
 //解法参考：https://leetcode-cn.com/problems/count-primes/solution/ru-he-gao-xiao-pan-ding-shai-xuan-su-shu-by-labula/。
 //时间和空间复杂度均为 o(n)
 func countPrimes(n int) int {
-	if n < 3 {return 0}  // 不包括n的非负整数
+	if n < 3 {
+		return 0
+	} // 不包括n的非负整数
 	primeArray := make([]bool, n)
-	for index,_ :=range primeArray[2:] {   // 排除0和1
+	for index, _ := range primeArray[2:] { // 排除0和1
 		primeArray[index+2] = true
 	}
-	for i:=2; i*i < n; i++ {
+	for i := 2; i*i < n; i++ {
 		if !primeArray[i] {
 			continue
 		}
-		for j:=2*i; j<n; j+=i {
-			primeArray[j]=false
+		for j := 2 * i; j < n; j += i {
+			primeArray[j] = false
 		}
 	}
 	result := 0
-	for _,value := range primeArray {
+	for _, value := range primeArray {
 		if value {
 			result++
 		}

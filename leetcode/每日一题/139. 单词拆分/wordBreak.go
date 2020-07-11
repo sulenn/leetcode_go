@@ -37,11 +37,11 @@ func wordBreak(s string, wordDict []string) bool {
 	}
 	dp := make([]bool, len(s)+1)
 	dp[0] = true
-	for i:=0; i<len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		if dp[i] != true {
 			continue
 		}
-		for j:=i+1; j<len(s)+1; j++ {
+		for j := i + 1; j < len(s)+1; j++ {
 			if _, ok := word_dict[s[i:j]]; ok {
 				dp[j] = true
 			}

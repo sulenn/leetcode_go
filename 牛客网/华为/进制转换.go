@@ -12,9 +12,9 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		dic := map[byte]int {'A':10, 'B':11, 'C':12, 'D':13, 'E':14, 'F':15}
+		dic := map[byte]int{'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
 		result := 0
-		for i:=len(input)-1; i >= 2; i-- {
+		for i := len(input) - 1; i >= 2; i-- {
 			if _, ok := dic[input[i]]; ok {
 				result += dic[input[i]] * pow(len(input)-i-1)
 			} else {
@@ -27,7 +27,7 @@ func main() {
 
 func pow(num1 int) int {
 	result := 1
-	for i:=0; i< num1; i++ {
+	for i := 0; i < num1; i++ {
 		result *= 16
 	}
 	return result

@@ -8,7 +8,7 @@ func maxSubArray(nums []int) int {
 	result := math.MinInt64
 	sum := 0
 	for _, value := range nums {
-		if sum + value >= 0 {
+		if sum+value >= 0 {
 			sum += value
 			if sum > result {
 				result = sum

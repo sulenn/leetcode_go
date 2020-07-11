@@ -3,15 +3,19 @@ package main
 //https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 //非递归
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	if l1 == nil {return l2}
-	if l2 == nil {return l1}
-	var head  = &ListNode{0,nil}
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
+	var head = &ListNode{0, nil}
 	curNode := head
 	for l1 != nil && l2 != nil {
 		if l1.Val < l2.Val {

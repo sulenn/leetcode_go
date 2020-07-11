@@ -9,28 +9,28 @@ package main
 //然后，对于每个节点，我们想知道向左延伸的最长箭头和向右延伸的最长箭头是什么？我们可以用递归来解决这个问题。
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
 func longestUnivaluePath(root *TreeNode) int {
 	var recursive func(root *TreeNode) int
 	result := 0
-	recursive = func(root *TreeNode) int {   // 每个节点的最长路径等于左边最新最长路径 + 右边最新最长路径
+	recursive = func(root *TreeNode) int { // 每个节点的最长路径等于左边最新最长路径 + 右边最新最长路径
 		if root == nil {
 			return 0
 		}
-		left := recursive(root.Left)  // 左子树最长路径
-		right := recursive(root.Right)   // 右子树最长路径
-		arrowLeft, arrowRight := 0, 0   // 包括节点在内的左边、右边最长路径
-		if root.Left != nil && root.Left.Val == root.Val {   // 计算左边
+		left := recursive(root.Left)                       // 左子树最长路径
+		right := recursive(root.Right)                     // 右子树最长路径
+		arrowLeft, arrowRight := 0, 0                      // 包括节点在内的左边、右边最长路径
+		if root.Left != nil && root.Left.Val == root.Val { // 计算左边
 			arrowLeft = left + 1
 		}
-		if root.Right != nil && root.Right.Val == root.Val {   // 计算右边
+		if root.Right != nil && root.Right.Val == root.Val { // 计算右边
 			arrowRight = right + 1
 		}
-		result = max(result, arrowLeft + arrowRight)
+		result = max(result, arrowLeft+arrowRight)
 		return max(arrowLeft, arrowRight)
 	}
 	recursive(root)
@@ -46,5 +46,5 @@ func max(a int, b int) int {
 }
 
 func main() {
-	
+
 }

@@ -7,7 +7,7 @@ func isPalindrome(s string) bool {
 	bytes := []byte(s)
 	length := len(bytes)
 	pre := 0
-	tail := length-1
+	tail := length - 1
 	for pre < tail {
 		preBool := (bytes[pre] >= '0' && bytes[pre] <= '9') || (bytes[pre] >= 'a' && bytes[pre] <= 'z')
 		if !preBool {

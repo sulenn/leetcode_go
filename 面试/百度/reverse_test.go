@@ -12,16 +12,16 @@ import (
 //	fmt.Println(reverse([]int {}))
 //}
 
-func Test_fun(T *testing.T)  {
+func Test_fun(T *testing.T) {
 	var test1 *Node
 	var test2 *Node
-	fmt.Println(fun(test1,test2))
+	fmt.Println(fun(test1, test2))
 	var test3 *Node
-	var test4 = &Node{1,nil}
-	fmt.Println(fun(test3,test4))
-	var test5 = &Node{1,nil}
-	test5.Next= &Node{2,nil}
-	var test7 = &Node{1,nil}
-	test7.Next = &Node{7,nil}
-	print(fun(test5,test7))
+	var test4 = &Node{1, nil}
+	fmt.Println(fun(test3, test4))
+	var test5 = &Node{1, nil}
+	test5.Next = &Node{2, nil}
+	var test7 = &Node{1, nil}
+	test7.Next = &Node{7, nil}
+	print(fun(test5, test7))
 }

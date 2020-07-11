@@ -9,34 +9,34 @@ import (
 
 //DP,可以参考解法：https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-tao-lu-xiang-jie-by-wei-lai-bu-ke/
 func coinChange(coins []int, amount int) int {
-	if amount == 0 {  // 总额为 0，直接输出 0
+	if amount == 0 { // 总额为 0，直接输出 0
 		return 0
 	}
-	size:=len(coins)   // 没有硬币
-	if size==0{
+	size := len(coins) // 没有硬币
+	if size == 0 {
 		return -1
 	}
 
-	dp:=make([]int,amount+1)
-	for i:=0;i<len(dp);i++{
-		dp[i]= math.MaxInt32
+	dp := make([]int, amount+1)
+	for i := 0; i < len(dp); i++ {
+		dp[i] = math.MaxInt32
 	}
 
-	dp[0]=0
+	dp[0] = 0
 
 	/*
 	   dp[i] 达到 i 的钱数所需要的最少的硬币数
 	   dp[i] = min(dp[i], dp[i-coin]+1)
 	*/
-	for i:=0;i<=amount;i++{
-		for j:=0;j<size;j++{
-			if i-coins[j]>=0{
-				dp[i]=min(dp[i],dp[i-coins[j]]+1)
+	for i := 0; i <= amount; i++ {
+		for j := 0; j < size; j++ {
+			if i-coins[j] >= 0 {
+				dp[i] = min(dp[i], dp[i-coins[j]]+1)
 			}
 		}
 	}
 
-	if dp[amount]==math.MaxInt32{
+	if dp[amount] == math.MaxInt32 {
 		return -1
 	}
 
@@ -96,6 +96,6 @@ func min(x, y int) int {
 //}
 
 func main() {
-	fmt.Println(coinChange([]int {1, 2, 5}, 11))
-	fmt.Println(coinChange([]int {2}, 1))
+	fmt.Println(coinChange([]int{1, 2, 5}, 11))
+	fmt.Println(coinChange([]int{2}, 1))
 }

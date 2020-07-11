@@ -9,16 +9,20 @@ func canThreePartsEqualSum(A []int) bool {
 	for _, v := range A {
 		sum += v
 	}
-	if sum % 3 != 0 || len(A) < 3 {return false}   // 数组长度大于3，且和能被 3 整除
+	if sum%3 != 0 || len(A) < 3 {
+		return false
+	} // 数组长度大于3，且和能被 3 整除
 	subSum := 0
 	flag := 0
 	for _, v := range A {
 		subSum += v
-		if subSum == sum / 3 {
+		if subSum == sum/3 {
 			subSum = 0
 			flag++
 		}
 	}
-	if flag < 3 {return false}
+	if flag < 3 {
+		return false
+	}
 	return true
 }

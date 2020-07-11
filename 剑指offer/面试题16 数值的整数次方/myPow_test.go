@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_myPow(T *testing.T)  {
+func Test_myPow(T *testing.T) {
 	fmt.Println(myPow(2.0, 10))
 	fmt.Println(myPow(2.1, 3))
 	fmt.Println(myPow(2.0, -2))

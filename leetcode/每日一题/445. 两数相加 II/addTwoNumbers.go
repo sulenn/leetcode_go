@@ -1,15 +1,19 @@
 package main
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	if l1 == nil {return l2}
-	if l2 == nil {return l1}
-	l1,count1 := reverseList(l1)
-	l2,count2 := reverseList(l2)
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
+	l1, count1 := reverseList(l1)
+	l2, count2 := reverseList(l2)
 	if count1 < count2 {
 		l1, l2 = l2, l1
 	}
@@ -23,8 +27,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		} else {
 			sum = l1.Val + restNum
 		}
-		l1.Val = sum%10
-		restNum = sum/10
+		l1.Val = sum % 10
+		restNum = sum / 10
 		l1 = l1.Next
 	}
 	//for l1 != nil {
@@ -41,7 +45,9 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 func reverseList(l *ListNode) (*ListNode, int) {
-	if l == nil {return l,0}
+	if l == nil {
+		return l, 0
+	}
 	pre := l
 	cur := pre.Next
 	pre.Next = nil
@@ -60,5 +66,5 @@ func addNode(head *ListNode, val int) {
 	for head.Next != nil {
 		head = head.Next
 	}
-	head.Next = &ListNode{Val:val}
+	head.Next = &ListNode{Val: val}
 }

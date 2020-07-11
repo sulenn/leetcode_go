@@ -6,12 +6,12 @@ package main
 //每一位上1的数量公式：countr += (n / divider) * i + min(max(n % divider - i + 1, 0), i);
 func countDigitOne(n int) int {
 	result := 0
-	for i:=1; i<= n; i *= 10 {
-		divider := i*10
+	for i := 1; i <= n; i *= 10 {
+		divider := i * 10
 		temp1 := 0
 		temp2 := 0
-		if n % divider - i + 1 > 0 {
-			temp1 = n % divider - i + 1
+		if n%divider-i+1 > 0 {
+			temp1 = n%divider - i + 1
 		} else {
 			temp1 = 0
 		}

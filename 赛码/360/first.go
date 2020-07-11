@@ -10,9 +10,11 @@ func main() {
 	var m int
 	for {
 		_, err := fmt.Scan(&n, &m)
-		if err ==io.EOF {break}
-		arr := make([]int,n)
-		for i:=0; i<n; i++ {
+		if err == io.EOF {
+			break
+		}
+		arr := make([]int, n)
+		for i := 0; i < n; i++ {
 			fmt.Scan(&arr[i])
 		}
 		if n == 1 {
@@ -22,15 +24,15 @@ func main() {
 		count := 0
 		num := m
 		max := arr[0]
-		for i:=1; i<n && num > 0; i++ {
+		for i := 1; i < n && num > 0; i++ {
 			if max > arr[i] {
 				num--
 			} else {
-					max = arr[i]
-					num = m-1
+				max = arr[i]
+				num = m - 1
 			}
 			count++
 		}
-		fmt.Println(count+num)
+		fmt.Println(count + num)
 	}
 }

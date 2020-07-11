@@ -1,13 +1,13 @@
 package main
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -16,10 +16,10 @@ func sortedListToBST(head *ListNode) *TreeNode {
 		return nil
 	}
 	if head.Next == nil {
-		return &TreeNode{Val:head.Val}
+		return &TreeNode{Val: head.Val}
 	}
 	if head.Next.Next == nil {
-		leftTree := TreeNode{Val:head.Val}
+		leftTree := TreeNode{Val: head.Val}
 		return &TreeNode{head.Next.Val, &leftTree, nil}
 	}
 	pre := head
@@ -32,12 +32,12 @@ func sortedListToBST(head *ListNode) *TreeNode {
 	}
 	pre.Next = nil
 	fast = slow.Next
-	root := TreeNode{Val:slow.Val}
+	root := TreeNode{Val: slow.Val}
 	root.Left = sortedListToBST(head)
 	root.Right = sortedListToBST(fast)
 	return &root
 }
 
 func main() {
-	
+
 }

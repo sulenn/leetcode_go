@@ -8,12 +8,12 @@ import (
 
 //层序遍历，参考：https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/solution/ceng-xu-bian-li-by-tinylife/
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
-type Codec struct {}
+type Codec struct{}
 
 func Constructor() Codec {
 	return Codec{}
@@ -21,9 +21,9 @@ func Constructor() Codec {
 
 // Serializes a tree to a single string.
 func (this *Codec) Serialize(root *TreeNode) string {
-	result := make([]string,0)
-	queue := []*TreeNode {root}
-	for len(queue)!=0 {
+	result := make([]string, 0)
+	queue := []*TreeNode{root}
+	for len(queue) != 0 {
 		curNode := queue[0]
 		queue = queue[1:]
 		if curNode != nil {
@@ -33,13 +33,15 @@ func (this *Codec) Serialize(root *TreeNode) string {
 			result = append(result, "null")
 		}
 	}
-	return strings.Join(result,",")
+	return strings.Join(result, ",")
 }
 
 // Deserializes your encoded data to tree.
 func (this *Codec) Deserialize(data string) *TreeNode {
 	stringArr := strings.Split(data, ",")
-	if len(data) <= 1 {return nil}
+	if len(data) <= 1 {
+		return nil
+	}
 	value, err := strconv.Atoi(stringArr[0])
 	if err != nil {
 		fmt.Println("error when transfer string to int")
@@ -47,7 +49,7 @@ func (this *Codec) Deserialize(data string) *TreeNode {
 	}
 	root := &TreeNode{Val: value}
 	queue := []*TreeNode{root}
-	i:=1
+	i := 1
 	for len(queue) != 0 {
 		curNode := queue[0]
 		queue = queue[1:]
@@ -57,7 +59,7 @@ func (this *Codec) Deserialize(data string) *TreeNode {
 		left := stringArr[i]
 		right := stringArr[i+1]
 		i += 2
-		if left != "null" {    // 左子树
+		if left != "null" { // 左子树
 			leftValue, err := strconv.Atoi(left)
 			if err != nil {
 				fmt.Println("error when transfer string to int")
@@ -68,7 +70,7 @@ func (this *Codec) Deserialize(data string) *TreeNode {
 		} else {
 			queue = append(queue, nil)
 		}
-		if right != "null" {   // 右子树
+		if right != "null" { // 右子树
 			rightValue, err := strconv.Atoi(right)
 			if err != nil {
 				fmt.Println("error when transfer string to int")

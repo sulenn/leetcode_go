@@ -7,18 +7,18 @@ package main
 func largestRectangleArea(heights []int) int {
 	max := 0
 	stack := make([]int, 0)
-	heights = append(heights, 0)   // 注意填充0，避免数组单调递增，没有出口
-	for i:=0; i<len(heights); i++ {
+	heights = append(heights, 0) // 注意填充0，避免数组单调递增，没有出口
+	for i := 0; i < len(heights); i++ {
 		for len(stack) > 0 && heights[stack[len(stack)-1]] > heights[i] {
 			cur := heights[stack[len(stack)-1]]
-			stack = stack[:len(stack)-1]   // 删掉栈中最后一位数
+			stack = stack[:len(stack)-1] // 删掉栈中最后一位数
 			left := 0
-			if len(stack) > 0 {  // 小心栈溢出
-				left = stack[len(stack)-1]+1
+			if len(stack) > 0 { // 小心栈溢出
+				left = stack[len(stack)-1] + 1
 			}
 			right := i - 1
-			if max < (right - left + 1)*cur {
-				max = (right - left + 1)*cur
+			if max < (right-left+1)*cur {
+				max = (right - left + 1) * cur
 			}
 		}
 		stack = append(stack, i)

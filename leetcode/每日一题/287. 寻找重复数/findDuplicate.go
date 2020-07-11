@@ -26,12 +26,14 @@ func findDuplicate(nums []int) int {
 		mid := pre + (tail-pre)/2
 		count := 0
 		for _, v := range nums {
-			if v <= mid {count++}
+			if v <= mid {
+				count++
+			}
 		}
 		// 根据抽屉原理，小于等于 4 的个数如果严格大于 4 个
 		// 此时重复元素一定出现在 [1, 4] 区间里
 		if count > mid {
-			tail = mid  // 重复元素位于区间 [tail, mid]
+			tail = mid // 重复元素位于区间 [tail, mid]
 		} else {
 			// if 分析正确了以后，else 搜索的区间就是 if 的反面
 			// [mid + 1, right]

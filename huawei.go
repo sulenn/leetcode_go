@@ -20,17 +20,19 @@ func Solution(str string) int {
 	max := 0
 	count := 0
 	var word byte
-	for i:=0;i<len(str);i++ {
+	for i := 0; i < len(str); i++ {
 		if word == str[i] {
 			count++
 		} else {
-				if count > max {
-					max = count
-				}
-				word = str[i]
-				count = 1
+			if count > max {
+				max = count
+			}
+			word = str[i]
+			count = 1
 		}
 	}
-	if count > max {max = count}
+	if count > max {
+		max = count
+	}
 	return max
 }

@@ -1,16 +1,16 @@
 package main
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 //先反转链表
 func reversePrint(head *ListNode) []int {
 	length := 0
-	var preNode *ListNode = nil   //  这么不能用 preNode := new(ListNode),new(ListNode) 的值为{0,nil}
+	var preNode *ListNode = nil //  这么不能用 preNode := new(ListNode),new(ListNode) 的值为{0,nil}
 	curNode := head
-	for curNode != nil {  // 反转链表
+	for curNode != nil { // 反转链表
 		temp := curNode.Next
 		curNode.Next = preNode
 		preNode = curNode
@@ -19,14 +19,13 @@ func reversePrint(head *ListNode) []int {
 	}
 	result := make([]int, length)
 	i := 0
-	for preNode != nil {  // 输出反转后的链表节点值
+	for preNode != nil { // 输出反转后的链表节点值
 		result[i] = preNode.Val
 		preNode = preNode.Next
 		i++
 	}
 	return result
 }
-
 
 //获取链表长度，声名数组，遍历链表至数组，翻转数组
 //func reversePrint(head *ListNode) []int {

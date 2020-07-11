@@ -24,7 +24,9 @@ import "sort"
 
 // 参考网友
 func permutation(s string) []string {
-	if len(s) <= 0 { return []string{} }
+	if len(s) <= 0 {
+		return []string{}
+	}
 	n := len(s)
 	pickedList := make([]bool, n)
 	cur := make([]byte, n)
@@ -37,7 +39,7 @@ func permutation(s string) []string {
 			res = append(res, string(cur))
 		}
 		for i := 0; i < n; i++ {
-			if !pickedList[i] && (i == 0 || bs[i - 1] != bs[i] || !pickedList[i - 1]) {
+			if !pickedList[i] && (i == 0 || bs[i-1] != bs[i] || !pickedList[i-1]) {
 				pickedList[i] = true
 				cur[index] = bs[i]
 				permuteHelper(index + 1)

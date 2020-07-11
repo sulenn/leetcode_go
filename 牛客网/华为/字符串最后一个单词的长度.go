@@ -13,11 +13,11 @@ func main() {
 	for input.Scan() {
 		line := input.Text()
 		result := 0
-		for i:=len(line)-1;i>=0;i-- {
+		for i := len(line) - 1; i >= 0; i-- {
 			if line[i] != ' ' {
 				result++
 			} else {
-					break
+				break
 			}
 		}
 		fmt.Println(result)

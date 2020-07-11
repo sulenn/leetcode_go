@@ -10,12 +10,12 @@ import (
 func reverseWords(s string) string {
 	sArr := strings.Split(s, " ")
 	newArr := make([]string, 0)
-	for i:=len(sArr)-1; i>=0; i-- {
+	for i := len(sArr) - 1; i >= 0; i-- {
 		if sArr[i] != "" {
 			newArr = append(newArr, sArr[i])
 		}
 	}
-	return strings.Join(newArr," ")
+	return strings.Join(newArr, " ")
 }
 
 func main() {

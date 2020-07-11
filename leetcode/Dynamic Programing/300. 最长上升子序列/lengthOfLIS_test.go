@@ -11,5 +11,5 @@ func Test_lengthOfLIS(T *testing.T) {
 	//fmt.Println(lengthOfLIS([]int {10,9}))
 	//fmt.Println(lengthOfLIS([]int {}))
 	//fmt.Println(lengthOfLIS([]int {10,9,2,5,3,4}))
-	fmt.Println(lengthOfLIS([]int {4,10,4,3,8,9}))
+	fmt.Println(lengthOfLIS([]int{4, 10, 4, 3, 8, 9}))
 }

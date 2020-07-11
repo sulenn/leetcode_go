@@ -5,12 +5,12 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
 func rotateRight(head *ListNode, k int) *ListNode {
-	if head == nil || head.Next == nil {  //前三个 if，排除特殊情况
+	if head == nil || head.Next == nil { //前三个 if，排除特殊情况
 		return head
 	}
 	if k < 0 {
@@ -19,18 +19,18 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	if k == 0 {
 		return head
 	}
-	length := 1  // 计算链表长度
-	curNode := head   // 当前节点
-	for curNode.Next != nil{
+	length := 1     // 计算链表长度
+	curNode := head // 当前节点
+	for curNode.Next != nil {
 		length++
 		curNode = curNode.Next
 	}
-	curNode.Next = head   // 组成循环链表
+	curNode.Next = head // 组成循环链表
 	realK := k % length
-	for i:=1; i < length - realK; i++ {  // 寻找切断循环链表的点
+	for i := 1; i < length-realK; i++ { // 寻找切断循环链表的点
 		head = head.Next
 	}
-	result := head.Next   // 切断循环链表
+	result := head.Next // 切断循环链表
 	head.Next = nil
 	return result
 }
@@ -43,7 +43,7 @@ func literal(head *ListNode) {
 }
 
 func main() {
-	temp := &ListNode{1,nil}
+	temp := &ListNode{1, nil}
 	head := temp
 	temp.Next = &ListNode{2, nil}
 	temp = temp.Next

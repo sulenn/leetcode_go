@@ -3,8 +3,8 @@ package main
 import "math"
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -23,5 +23,5 @@ func recursive(root *TreeNode, upper int, low int) bool {
 }
 
 func main() {
-	
+
 }

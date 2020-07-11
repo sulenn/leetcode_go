@@ -1,13 +1,15 @@
 package main
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
-func flatten(root *TreeNode)  {
-	if root == nil {return}
+func flatten(root *TreeNode) {
+	if root == nil {
+		return
+	}
 	flatten(root.Left)
 	flatten(root.Right)
 	temp := root.Right
@@ -20,5 +22,5 @@ func flatten(root *TreeNode)  {
 }
 
 func main() {
-	
+
 }

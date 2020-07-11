@@ -6,7 +6,7 @@ package main
  * @return string字符串
  */
 
-func reverse( str string ) string {
+func reverse(str string) string {
 	// write code here
 	r := []rune(str)
 	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
@@ -14,4 +14,3 @@ func reverse( str string ) string {
 	}
 	return string(r)
 }
-

@@ -10,7 +10,7 @@ func reverseWords(s string) string {
 	result := ""
 	for i := 0; i < len(strArray); i++ {
 		temp := ""
-		for j := 0; j< len(strArray[i]) ; j++ {
+		for j := 0; j < len(strArray[i]); j++ {
 			temp = string(strArray[i][j]) + temp
 		}
 		result += temp + " "

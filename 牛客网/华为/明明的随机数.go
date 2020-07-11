@@ -10,14 +10,14 @@ import (
 
 func main() {
 	for {
-		nums := []int {}
+		nums := []int{}
 		num := 0
 		_, err := fmt.Scan(&num)
 		if err == io.EOF {
 			break
 		}
 		temp := 0
-		for i:=0; i< num; i++ {
+		for i := 0; i < num; i++ {
 			_, err := fmt.Scan(&temp)
 			if err == io.EOF {
 				break
@@ -25,14 +25,14 @@ func main() {
 			nums = append(nums, temp)
 		}
 		sort.Ints(nums)
-		for i:=0; i<len(nums)-1;  {
+		for i := 0; i < len(nums)-1; {
 			if nums[i] == nums[i+1] {
 				nums = append(nums[:i], nums[i+1:]...)
 			} else {
 				i++
 			}
 		}
-		for _, v:= range nums {
+		for _, v := range nums {
 			fmt.Println(v)
 		}
 	}

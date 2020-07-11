@@ -6,9 +6,11 @@ import "strconv"
 
 func evalRPN(tokens []string) int {
 	nums := make([]int, 0)
-	for i:=0; i<len(tokens); i++ {
+	for i := 0; i < len(tokens); i++ {
 		if tokens[i] == "+" || tokens[i] == "-" || tokens[i] == "*" || tokens[i] == "/" {
-			if len(nums) < 2 {return 0}
+			if len(nums) < 2 {
+				return 0
+			}
 			if tokens[i] == "+" {
 				nums[len(nums)-2] += nums[len(nums)-1]
 			}

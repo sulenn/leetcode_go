@@ -5,9 +5,9 @@ package main
 //该题和 “198. 打家劫舍” 一模一样
 func massage(nums []int) int {
 	first, second := 0, 0
-	for _, v:= range nums {
-		if first + v > second {
-			second, first = first + v, second
+	for _, v := range nums {
+		if first+v > second {
+			second, first = first+v, second
 		} else {
 			first = second
 		}

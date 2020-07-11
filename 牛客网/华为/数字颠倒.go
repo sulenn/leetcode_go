@@ -16,7 +16,7 @@ func main() {
 			break
 		}
 		result := ""
-		if input == 0 {  // 特俗情况
+		if input == 0 { // 特俗情况
 			fmt.Println("0")
 			continue
 		}

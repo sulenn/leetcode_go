@@ -13,6 +13,6 @@ func main() {
 		if a == 0 {
 			break
 		}
-		fmt.Println(a/2)
+		fmt.Println(a / 2)
 	}
 }

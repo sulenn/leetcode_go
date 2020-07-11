@@ -7,9 +7,11 @@ package main
 //思路，倒序遍历。如果遇到0，记录下标为zero，继续倒序遍历时下标需要满足nums[i] >= zere-i+1，才可以跳过这个zero所处的位置
 //否则无法跳过这个0，即无法到达最后一个元素
 func canJump(nums []int) bool {
-	if len(nums) == 0 {return false}
+	if len(nums) == 0 {
+		return false
+	}
 	zere := -1
-	for i:=len(nums)-2; i>=0; i-- {  // 从倒数第二个数开始
+	for i := len(nums) - 2; i >= 0; i-- { // 从倒数第二个数开始
 		if zere == -1 && nums[i] == 0 {
 			zere = i
 		}
@@ -17,7 +19,7 @@ func canJump(nums []int) bool {
 			zere = -1
 		}
 	}
-	return zere==-1
+	return zere == -1
 }
 
 //深搜超时
@@ -35,4 +37,3 @@ func canJump(nums []int) bool {
 //	}
 //	return dfs(nums)
 //}
-

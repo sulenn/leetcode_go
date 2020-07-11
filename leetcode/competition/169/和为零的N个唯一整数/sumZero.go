@@ -6,12 +6,12 @@ package main
 
 func sumZero(n int) []int {
 	result := []int{}
-	if n % 2 == 0{   // 偶数
-		for i:=n/2; i>0; i-- {
+	if n%2 == 0 { // 偶数
+		for i := n / 2; i > 0; i-- {
 			result = append(result, -i, i)
 		}
-	} else {   //  奇数
-		for i:=n/2; i>0; i-- {
+	} else { //  奇数
+		for i := n / 2; i > 0; i-- {
 			result = append(result, -i, i)
 		}
 		result = append(result, 0)
@@ -20,5 +20,5 @@ func sumZero(n int) []int {
 }
 
 func main() {
-	
+
 }

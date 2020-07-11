@@ -7,15 +7,15 @@ import "fmt"
  * @param input string字符串一维数组 待转换的算术式
  * @return string字符串一维数组
  */
-func ReversePolishNotation2( input []string ) []string {
+func ReversePolishNotation2(input []string) []string {
 	// write code here
-	result := []string {}
-	stack := []string {}
-	for i:=0; i<len(input);i++ {
+	result := []string{}
+	stack := []string{}
+	for i := 0; i < len(input); i++ {
 		if input[i] == ")" {
 			stack = stack[:len(stack)-1]
-			j:=len(stack)-1
-			for ; j>=0 && stack[j] != "("; j-- {
+			j := len(stack) - 1
+			for ; j >= 0 && stack[j] != "("; j-- {
 				result = append(result, stack[j])
 			}
 			stack = stack[:j+1]
@@ -29,8 +29,8 @@ func ReversePolishNotation2( input []string ) []string {
 						continue
 					}
 				}
-				j:=len(stack)-1
-				for ; j>=0&&stack[j] != "("; j-- {
+				j := len(stack) - 1
+				for ; j >= 0 && stack[j] != "("; j-- {
 					result = append(result, stack[j])
 				}
 				stack = stack[:j+1]
@@ -38,28 +38,29 @@ func ReversePolishNotation2( input []string ) []string {
 			}
 		}
 	}
-	for j:=len(stack)-1; j>=0; j-- {
+	for j := len(stack) - 1; j >= 0; j-- {
 		result = append(result, stack[j])
 	}
 	return result
 }
+
 //["1","+","2"]
 //["3", "-", "(", "4", "*", "5", "+", "1", ")"]
 func main() {
-	fmt.Println(ReversePolishNotation2([]string{"1","+","2"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","+","2","*","6","-","2"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","2","*","4"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","2","*","4","*","7"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","2","*","(","4","*","7",")"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","/","2","*","4"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","2","/","4"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "+", "2"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "+", "2", "*", "6", "-", "2"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "2", "*", "4"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "2", "*", "4", "*", "7"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "2", "*", "(", "4", "*", "7", ")"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "/", "2", "*", "4"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "2", "/", "4"}))
 	fmt.Println(ReversePolishNotation2([]string{"1"}))
 	fmt.Println(ReversePolishNotation2([]string{}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","2","*","3"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","2","+","5","/","8"}))
-	fmt.Println(ReversePolishNotation2([]string{"1","*","(","2","+","5",")","/","8"}))
-	fmt.Println(ReversePolishNotation2([]string{"3","-","(","4","*","5","+","1",")"}))
-	fmt.Println(ReversePolishNotation2([]string{"3","-","(","4","*","(","5","+","1",")",")"}))
-	fmt.Println(ReversePolishNotation2([]string{"3","-","(","4","*","(","(","5","+","1",")",")",")"}))
-	fmt.Println(ReversePolishNotation2([]string{"(","3","-","(","4","*","(","(","5","+","1",")",")",")",")"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "2", "*", "3"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "2", "+", "5", "/", "8"}))
+	fmt.Println(ReversePolishNotation2([]string{"1", "*", "(", "2", "+", "5", ")", "/", "8"}))
+	fmt.Println(ReversePolishNotation2([]string{"3", "-", "(", "4", "*", "5", "+", "1", ")"}))
+	fmt.Println(ReversePolishNotation2([]string{"3", "-", "(", "4", "*", "(", "5", "+", "1", ")", ")"}))
+	fmt.Println(ReversePolishNotation2([]string{"3", "-", "(", "4", "*", "(", "(", "5", "+", "1", ")", ")", ")"}))
+	fmt.Println(ReversePolishNotation2([]string{"(", "3", "-", "(", "4", "*", "(", "(", "5", "+", "1", ")", ")", ")", ")"}))
 }

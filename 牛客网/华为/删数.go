@@ -14,7 +14,7 @@ func main() {
 			break
 		}
 		result := 0
-		for i:=2; i<= input; i++ {
+		for i := 2; i <= input; i++ {
 			result = (result + 3) % i
 		}
 		fmt.Println(result)

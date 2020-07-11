@@ -11,8 +11,8 @@ func minPathSum(grid [][]int) int {
 	}
 	rowLen := len(grid) - 1
 	colLen := len(grid[0]) - 1
-	for i:=rowLen;i>=0;i-- {   // 倒序求每个点的路径值，从最下一行开始
-		for j:=colLen;j>=0;j-- {
+	for i := rowLen; i >= 0; i-- { // 倒序求每个点的路径值，从最下一行开始
+		for j := colLen; j >= 0; j-- {
 			if j+1 <= colLen && i+1 <= rowLen {
 				if grid[i][j+1] > grid[i+1][j] {
 					grid[i][j] += grid[i+1][j]
@@ -21,7 +21,7 @@ func minPathSum(grid [][]int) int {
 				}
 			} else if j+1 <= colLen && i+1 > rowLen {
 				grid[i][j] += grid[i][j+1]
-			}else if j+1 > colLen && i+1 <= rowLen {
+			} else if j+1 > colLen && i+1 <= rowLen {
 				grid[i][j] += grid[i+1][j]
 			}
 		}
@@ -30,5 +30,5 @@ func minPathSum(grid [][]int) int {
 }
 
 func main() {
-	fmt.Println(minPathSum([][]int {{1,3,1},{1,5,1},{4,2,1}}))
+	fmt.Println(minPathSum([][]int{{1, 3, 1}, {1, 5, 1}, {4, 2, 1}}))
 }

@@ -4,19 +4,23 @@ package main
 
 //二维01背包问题，背包容量为1和0的数量，可装入的物品为01组成的字符串
 func findMaxForm(strs []string, m int, n int) int {
-	arr := make([][]int, m+1)   // 注意行长度为m+1，不然会出错。如第一个字符串为"10"
-	for i:=0; i<m+1; i++ {
-		arr[i] = make([]int, n+1)  // 注意列长度为 n+1
+	arr := make([][]int, m+1) // 注意行长度为m+1，不然会出错。如第一个字符串为"10"
+	for i := 0; i < m+1; i++ {
+		arr[i] = make([]int, n+1) // 注意列长度为 n+1
 	}
-	for i:=0; i<len(strs); i++ {
+	for i := 0; i < len(strs); i++ {
 		zeres := 0
 		ones := 0
-		for j:=0; j<len(strs[i]); j++ {
-			if strs[i][j] == '1' {ones++} else {zeres++}
+		for j := 0; j < len(strs[i]); j++ {
+			if strs[i][j] == '1' {
+				ones++
+			} else {
+				zeres++
+			}
 		}
-		for u:=m; u>=zeres; u-- {
-			for v:=n;v>=ones;v-- {
-				if arr[u][v] < arr[u-zeres][v-ones] + 1 {
+		for u := m; u >= zeres; u-- {
+			for v := n; v >= ones; v-- {
+				if arr[u][v] < arr[u-zeres][v-ones]+1 {
 					arr[u][v] = arr[u-zeres][v-ones] + 1
 				}
 			}

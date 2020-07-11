@@ -3,8 +3,8 @@ package main
 import "strconv"
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -18,8 +18,9 @@ func sumNumbers(root *TreeNode) int {
 func recursive(root *TreeNode, num string) int {
 	if root.Left == nil && root.Right == nil {
 		num += strconv.Itoa(root.Val)
-		result,err:=strconv.Atoi(num)
-		if err != nil {}
+		result, err := strconv.Atoi(num)
+		if err != nil {
+		}
 		return result
 	}
 	sum := 0
@@ -37,5 +38,5 @@ func recursive(root *TreeNode, num string) int {
 }
 
 func main() {
-	
+
 }

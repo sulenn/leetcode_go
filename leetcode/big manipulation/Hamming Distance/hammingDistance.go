@@ -15,7 +15,7 @@ func hammingDistance(x int, y int) int {
 	var result int
 	z := x ^ y
 	for z != 0 {
-		if z & 1 == 1 {
+		if z&1 == 1 {
 			result++
 		}
 		z = z >> 1
@@ -57,5 +57,5 @@ func hammingDistance(x int, y int) int {
 //}
 
 func main() {
-	fmt.Println(hammingDistance(1,4))
+	fmt.Println(hammingDistance(1, 4))
 }

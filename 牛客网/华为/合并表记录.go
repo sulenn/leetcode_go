@@ -12,20 +12,20 @@ import (
 func main() {
 	for {
 		line := 0
-		_, err := fmt.Scan(&line)   // key，value 行数
+		_, err := fmt.Scan(&line) // key，value 行数
 		if err == io.EOF {
 			break
 		}
 		dic := make(map[int]int)
-		arr := []int {}
+		arr := []int{}
 		key := 0
 		value := 0
-		for i:=0 ;i<line; i++ {
+		for i := 0; i < line; i++ {
 			_, err := fmt.Scan(&key, &value)
 			if err == io.EOF {
 				break
 			}
-			if _, ok:=dic[key]; ok {
+			if _, ok := dic[key]; ok {
 				dic[key] += value
 			} else {
 				dic[key] = value
@@ -33,8 +33,8 @@ func main() {
 			}
 		}
 		sort.Ints(arr)
-		for _, v:= range arr {
-			fmt.Println(strconv.Itoa(v)+" "+strconv.Itoa(dic[v]))
+		for _, v := range arr {
+			fmt.Println(strconv.Itoa(v) + " " + strconv.Itoa(dic[v]))
 		}
 	}
 }

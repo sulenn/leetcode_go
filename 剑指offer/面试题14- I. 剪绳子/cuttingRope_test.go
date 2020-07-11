@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_cuttingRope(T *testing.T)  {
+func Test_cuttingRope(T *testing.T) {
 	fmt.Println(cuttingRope(2))
 	fmt.Println(cuttingRope(3))
 	fmt.Println(cuttingRope(10))

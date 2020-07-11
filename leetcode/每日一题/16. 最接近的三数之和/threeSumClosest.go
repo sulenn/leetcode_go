@@ -10,23 +10,23 @@ import (
 func threeSumClosest(nums []int, target int) int {
 	sum := 99999
 	sort.Ints(nums)
-	for i:=0; i<len(nums)-2; i++ {
+	for i := 0; i < len(nums)-2; i++ {
 		if nums[i] > target {
 
 		}
-		pre := i+1
-		tail := len(nums)-1
+		pre := i + 1
+		tail := len(nums) - 1
 		for pre < tail {
 			res := nums[i] + nums[pre] + nums[tail] - target
 			if res == 0 {
 				return target
 			} else if res > 0 {
-				if abs(sum - target) > res {
+				if abs(sum-target) > res {
 					sum = nums[i] + nums[pre] + nums[tail]
 				}
 				tail--
 			} else {
-				if abs(sum - target) > abs(res) {
+				if abs(sum-target) > abs(res) {
 					sum = nums[i] + nums[pre] + nums[tail]
 				}
 				pre++

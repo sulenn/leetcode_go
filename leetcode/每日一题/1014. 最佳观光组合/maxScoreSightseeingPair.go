@@ -17,12 +17,12 @@ package main
 func maxScoreSightseeingPair(A []int) int {
 	result := 0
 	max := A[0]
-	for i:=1; i<len(A); i++ {
+	for i := 1; i < len(A); i++ {
 		if A[i]-i+max > result {
-			result = A[i]-i+max
+			result = A[i] - i + max
 		}
 		if A[i]+i > max {
-			max = A[i]+i
+			max = A[i] + i
 		}
 	}
 	return result

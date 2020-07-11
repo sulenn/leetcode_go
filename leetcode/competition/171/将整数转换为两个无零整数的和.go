@@ -6,17 +6,17 @@ import "fmt"
 
 func getNoZeroIntegers(n int) []int {
 	a := 1
-	b := n-a
-	for !judge(a) || !judge(b) {   // 任何一个数包含零均重来
+	b := n - a
+	for !judge(a) || !judge(b) { // 任何一个数包含零均重来
 		a++
 		b--
 	}
-	return []int {a, b}
+	return []int{a, b}
 }
 
-func judge(n int) bool {   // 判断某个数有没有包含 0
+func judge(n int) bool { // 判断某个数有没有包含 0
 	for n != 0 {
-		if n % 10 == 0 {
+		if n%10 == 0 {
 			return false
 		} else {
 			n = n / 10

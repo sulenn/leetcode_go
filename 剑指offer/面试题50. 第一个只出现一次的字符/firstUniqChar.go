@@ -6,14 +6,14 @@ import "fmt"
 
 func firstUniqChar(s string) byte {
 	sMap := make(map[byte]int)
-	for i:=0; i< len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		if _, ok := sMap[s[i]]; ok {
 			sMap[s[i]]++
 		} else {
 			sMap[s[i]] = 1
 		}
 	}
-	for i:=0; i< len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		if sMap[s[i]] == 1 {
 			return s[i]
 		}
@@ -21,7 +21,7 @@ func firstUniqChar(s string) byte {
 	return ' '
 }
 
-func main()  {
+func main() {
 	test := make(map[int]int)
 	fmt.Println(test[0])
 }

@@ -4,7 +4,7 @@ package main
 
 func canPlaceFlowers(flowerbed []int, n int) bool {
 	flowerbed = append([]int{0}, append(flowerbed, 0)...)
-	for i:=1; i<len(flowerbed)-1 && n > 0; i++ {
+	for i := 1; i < len(flowerbed)-1 && n > 0; i++ {
 		if flowerbed[i] == 0 && flowerbed[i-1] == 0 && flowerbed[i+1] == 0 {
 			flowerbed[i] = 1
 			n--

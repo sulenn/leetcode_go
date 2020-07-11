@@ -4,9 +4,9 @@ import "fmt"
 
 //* Definition for a binary tree node.
 type TreeNode struct {
-Val int
-Left *TreeNode
-Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func buildTree(preorder []int, inorder []int) *TreeNode {
@@ -36,6 +36,6 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 }
 
 func main() {
-	temp := buildTree([]int {3,9,20,15,7}, []int {9,3,15,20,7})
+	temp := buildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7})
 	fmt.Println(temp)
 }

@@ -3,9 +3,10 @@ package main
 //https://leetcode-cn.com/problems/middle-of-the-linked-list/
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
+
 func middleNode(head *ListNode) *ListNode {
 	p := head
 	for p.Next != nil && p.Next.Next != nil {

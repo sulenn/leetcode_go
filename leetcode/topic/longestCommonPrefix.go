@@ -16,7 +16,7 @@ func longestCommonPrefix(strs []string) string {
 	//		max = strs[i]
 	//	}
 	//}
-	for _, elem:= range strs {
+	for _, elem := range strs {
 		if min > elem {
 			min = elem
 		}
@@ -34,6 +34,6 @@ func longestCommonPrefix(strs []string) string {
 
 func main() {
 	//strArray := [] string{"flower","flow","flight"}
-	fmt.Println(longestCommonPrefix([] string{"flower","flow","flight"}))
-	fmt.Println(longestCommonPrefix([] string{"dog","racecar","car"}))
+	fmt.Println(longestCommonPrefix([]string{"flower", "flow", "flight"}))
+	fmt.Println(longestCommonPrefix([]string{"dog", "racecar", "car"}))
 }

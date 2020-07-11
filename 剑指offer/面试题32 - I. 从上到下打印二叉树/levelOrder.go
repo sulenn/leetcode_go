@@ -3,16 +3,16 @@ package main
 //https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func levelOrder(root *TreeNode) []int {
 	if root == nil {
-		return []int {}
+		return []int{}
 	}
-	queue := []*TreeNode {root}
+	queue := []*TreeNode{root}
 	var result []int
 	for len(queue) != 0 {
 		result = append(result, queue[0].Val)

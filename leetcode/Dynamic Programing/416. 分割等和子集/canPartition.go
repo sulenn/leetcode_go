@@ -5,14 +5,16 @@ package main
 //0/1 背包问题，dp[i][j] = dp[i][j-1] || dp[i][j-v0]
 func canPartition(nums []int) bool {
 	sums := 0
-	for _, v:=range nums {
+	for _, v := range nums {
 		sums += v
 	}
-	if sums == 0 ||sums % 2 == 1 {return false}
+	if sums == 0 || sums%2 == 1 {
+		return false
+	}
 	arr := make([]bool, sums/2+1)
-	arr[0]= true
-	for i:=0; i<len(nums); i++ {
-		for j:=sums/2; j>i; j-- {
+	arr[0] = true
+	for i := 0; i < len(nums); i++ {
+		for j := sums / 2; j > i; j-- {
 			if j-nums[i] >= 0 {
 				arr[j] = arr[j] || arr[j-nums[i]]
 			} else {

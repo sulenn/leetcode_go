@@ -8,8 +8,8 @@ import "math"
 func printNumbers(n int) []int {
 	maxNumer := int(math.Pow10(n) - 1)
 	result := make([]int, maxNumer)
-	for i:=0;i<maxNumer;i++ {
-		result[i] = i+1
+	for i := 0; i < maxNumer; i++ {
+		result[i] = i + 1
 	}
 	return result
 }

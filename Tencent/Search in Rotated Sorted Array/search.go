@@ -22,11 +22,12 @@ func search(nums []int, target int) int {
 	}
 	return -1
 }
+
 //排序数组中查找目标值
 func findTarget(nums []int, target int) int {
 	left := 0
 	right := len(nums) - 1
-	for left <= right {   // 存在等于号
+	for left <= right { // 存在等于号
 		mid := (left + right) / 2
 		if nums[mid] == target {
 			return mid
@@ -39,13 +40,14 @@ func findTarget(nums []int, target int) int {
 	}
 	return -1
 }
+
 //查找旋转点
 func findPivot(nums []int) int {
 	left := 0
 	right := len(nums) - 1
-	for left < right {  //留意没有等于号
+	for left < right { //留意没有等于号
 		mid := (left + right) / 2
-		if mid > 0 && nums[mid] < nums[mid - 1] {
+		if mid > 0 && nums[mid] < nums[mid-1] {
 			return mid
 		}
 		if nums[mid] > nums[left] {
@@ -54,12 +56,12 @@ func findPivot(nums []int) int {
 			right = mid
 		}
 	}
-	return len(nums) - 1   // 注意，存在没有旋转的排序数组
+	return len(nums) - 1 // 注意，存在没有旋转的排序数组
 }
 
 func main() {
-	fmt.Println(search([]int {4,5,6,7,0,1,2}, 0))
-	fmt.Println(search([]int {4,5,6,7,0,1,2}, 3))
-	fmt.Println(search([]int {1}, 1))
-	fmt.Println(search([]int {1, 3}, 1))
+	fmt.Println(search([]int{4, 5, 6, 7, 0, 1, 2}, 0))
+	fmt.Println(search([]int{4, 5, 6, 7, 0, 1, 2}, 3))
+	fmt.Println(search([]int{1}, 1))
+	fmt.Println(search([]int{1, 3}, 1))
 }

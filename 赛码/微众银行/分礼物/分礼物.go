@@ -11,7 +11,7 @@ func main() {
 	var a int
 	var b int
 	for {
-		_, err := fmt.Scan(&n,&m,&a,&b)
+		_, err := fmt.Scan(&n, &m, &a, &b)
 		if err == io.EOF {
 			break
 		}
@@ -19,27 +19,27 @@ func main() {
 			fmt.Println(0)
 			break
 		}
-		fmt.Println(solution(n,m,a,b))
+		fmt.Println(solution(n, m, a, b))
 	}
 }
 
-func solution(n,m,a,b int) int {
+func solution(n, m, a, b int) int {
 	count := 0
 	if n >= m {
 		if a > b {
-			count = (n-m)*b
+			count = (n - m) * b
 		} else {
-			count = (n-m)*a
+			count = (n - m) * a
 		}
 	} else {
-		count = (m % n)*b
+		count = (m % n) * b
 		num := 0
 		for m%n != 0 {
 			num++
 			n--
 		}
-		if num*a < count{
-			count = num*a
+		if num*a < count {
+			count = num * a
 		}
 	}
 	return count

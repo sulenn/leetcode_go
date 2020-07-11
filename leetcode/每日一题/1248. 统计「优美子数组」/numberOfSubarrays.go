@@ -13,18 +13,24 @@ func numberOfSubarrays(nums []int, k int) int {
 	curLevelCount := 0
 	count := 0
 	num := 0
-	for ;p1 <= len(nums) - k; p1++{
-		if p1 != 0 && nums[p1-1]%2 == 0 {  // nums[p1] 为偶数
+	for ; p1 <= len(nums)-k; p1++ {
+		if p1 != 0 && nums[p1-1]%2 == 0 { // nums[p1] 为偶数
 			count += curLevelCount
 			continue
-		} else if p1 != 0 && nums[p1-1]%2 != 0 {  // nums[p1] 为奇数
+		} else if p1 != 0 && nums[p1-1]%2 != 0 { // nums[p1] 为奇数
 			curLevelCount = 0
-			num = k-1
+			num = k - 1
 		}
-		for ;p2 < len(nums); p2++ {
-			if nums[p2] % 2 != 0 {num++}
-			if num == k {curLevelCount++}
-			if num > k {break}
+		for ; p2 < len(nums); p2++ {
+			if nums[p2]%2 != 0 {
+				num++
+			}
+			if num == k {
+				curLevelCount++
+			}
+			if num > k {
+				break
+			}
 		}
 		count += curLevelCount
 	}

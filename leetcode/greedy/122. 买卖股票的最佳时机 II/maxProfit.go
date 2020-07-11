@@ -7,7 +7,7 @@ import "math"
 func maxProfit(prices []int) int {
 	profit := 0
 	price := math.MaxInt64
-	for i:=0; i<len(prices); i++ {
+	for i := 0; i < len(prices); i++ {
 		if prices[i] > price {
 			profit += prices[i] - price
 		}

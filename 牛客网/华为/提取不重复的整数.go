@@ -12,9 +12,9 @@ func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
 		num := input.Text()
-		flagArr := make([]bool, 10)   // 0 - 10
+		flagArr := make([]bool, 10) // 0 - 10
 		result := ""
-		for i:=len(num)-1; i>=0; i-- {
+		for i := len(num) - 1; i >= 0; i-- {
 			if !flagArr[num[i]-'0'] {
 				result += string(num[i])
 				flagArr[num[i]-'0'] = true

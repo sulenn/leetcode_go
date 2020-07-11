@@ -24,16 +24,16 @@ func main() {
 		if mi == 60 {
 			mi = 0
 			if hour+1 > 23 {
-				hour = (hour+1)%24
+				hour = (hour + 1) % 24
 				if week+1 > 7 {
-					week = (week+1)%7
+					week = (week + 1) % 7
 				}
 			}
 		}
 		if hour > 23 {
-			hour = (hour)%24
+			hour = (hour) % 24
 			if week+1 > 7 {
-				week = (week+1)%7
+				week = (week + 1) % 7
 			}
 		}
 		week, time = solution(week, hour, mi, minutes)
@@ -48,7 +48,7 @@ func solution(week, hour, mi, minutes int) (int, string) {
 	newMi := minutes % 60
 	newWeek := newHour / 24
 	newHour = newHour % 24
-	if mi >= newMi {  // 分钟
+	if mi >= newMi { // 分钟
 		mi -= newMi
 	} else {
 		mi += 60 - newMi
@@ -64,7 +64,7 @@ func solution(week, hour, mi, minutes int) (int, string) {
 		//	}
 		//}
 	}
-	if hour >= newHour {  // 小时
+	if hour >= newHour { // 小时
 		hour -= newHour
 	} else {
 		hour += 24 - newHour
@@ -75,23 +75,23 @@ func solution(week, hour, mi, minutes int) (int, string) {
 		//	week--
 		//}
 	}
-	if week > newWeek {  // 星期几
+	if week > newWeek { // 星期几
 		week -= newWeek
 	} else {
-		week += 7-newWeek%7
+		week += 7 - newWeek%7
 	}
 	var backMin string
 	var backHour string
 	if hour < 10 {
-		backHour = "0"+strconv.Itoa(hour)
+		backHour = "0" + strconv.Itoa(hour)
 	} else {
 		backHour = strconv.Itoa(hour)
 	}
 
 	if mi < 10 {
-		backMin = "0"+strconv.Itoa(mi)
+		backMin = "0" + strconv.Itoa(mi)
 	} else {
 		backMin = strconv.Itoa(mi)
 	}
-	return week, backHour+":"+backMin
+	return week, backHour + ":" + backMin
 }

@@ -7,7 +7,7 @@ import (
 
 //https://leetcode-cn.com/contest/weekly-contest-172/problems/maximum-69-number/
 
-func maximum69Number (num int) int {
+func maximum69Number(num int) int {
 	length := 0
 	result := 0
 	flag := true
@@ -17,8 +17,8 @@ func maximum69Number (num int) int {
 		temp_num = temp_num / 10
 	}
 	length--
-	for ;length>=0;length--{
-		if flag && num / int(math.Pow10(length)) == 6 {
+	for ; length >= 0; length-- {
+		if flag && num/int(math.Pow10(length)) == 6 {
 			result += 9 * int(math.Pow10(length))
 			num -= 6 * int(math.Pow10(length))
 			flag = false

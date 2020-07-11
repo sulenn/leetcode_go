@@ -25,7 +25,7 @@ func pathSum(root *common.TreeNode, sum int) int {
 		path = append(path, root.Val)
 
 		tmp := 0
-		for i := len(path)-1; i >= 0; i-- {
+		for i := len(path) - 1; i >= 0; i-- {
 			tmp += path[i]
 			if tmp == sum {
 				ans++
@@ -86,7 +86,7 @@ func pathSum(root *common.TreeNode, sum int) int {
 //}
 
 func main() {
-	root := common.CreateTree([]int {10,5,-3,3,2,1000001,11,3,-2,1000001,1})
+	root := common.CreateTree([]int{10, 5, -3, 3, 2, 1000001, 11, 3, -2, 1000001, 1})
 	//common.VisitNodeByLayer(root)
 	fmt.Println(pathSum(root, 8))
 }

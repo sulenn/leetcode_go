@@ -6,13 +6,13 @@ import (
 )
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 type Item struct {
-	Val int
+	Val   int
 	lines int
 }
 
@@ -21,7 +21,7 @@ func recoverFromPreorder(S string) *TreeNode {
 	items := make([]Item, 0)
 	lineNums := 0
 	numStr := ""
-	for i:=0; i<len(S); i++ {
+	for i := 0; i < len(S); i++ {
 		if S[i] == '-' && numStr != "" {
 			num, _ := strconv.Atoi(numStr)
 			items = append(items, Item{num, lineNums})
@@ -30,12 +30,12 @@ func recoverFromPreorder(S string) *TreeNode {
 		} else if S[i] == '-' {
 			lineNums++
 		} else {
-			numStr += S[i:i+1]
+			numStr += S[i : i+1]
 		}
 	}
 	num, _ := strconv.Atoi(numStr)
 	items = append(items, Item{num, lineNums})
-	nums, root := dfs(0,0,items)
+	nums, root := dfs(0, 0, items)
 	fmt.Println(nums)
 	return root
 }
@@ -45,7 +45,7 @@ func dfs(layer int, nums int, items []Item) (int, *TreeNode) {
 	if len(items) == nums || items[nums].lines != layer {
 		return nums, nil
 	}
-	node := &TreeNode{items[nums].Val, nil,nil}
+	node := &TreeNode{items[nums].Val, nil, nil}
 	nums++
 	nums, node.Left = dfs(layer+1, nums, items)
 	nums, node.Right = dfs(layer+1, nums, items)

@@ -8,17 +8,16 @@ type CQueue struct {
 }
 
 func Constructor() CQueue {
-	return CQueue{[]int {},[]int {}}
+	return CQueue{[]int{}, []int{}}
 }
 
-func (this *CQueue) AppendTail(value int)  {
+func (this *CQueue) AppendTail(value int) {
 	this.stack1 = append(this.stack1, value)
 }
 
-
 func (this *CQueue) DeleteHead() int {
 	if len(this.stack2) == 0 {
-		if len(this.stack1) == 0{
+		if len(this.stack1) == 0 {
 			return -1
 		} else {
 			for len(this.stack1) != 0 {

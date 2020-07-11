@@ -15,10 +15,10 @@ func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
 		line := input.Text()
-		num1,_ := strconv.Atoi(strings.Split(line,".")[0])
-		num2 := strings.Split(line,".")[1]
+		num1, _ := strconv.Atoi(strings.Split(line, ".")[0])
+		num2 := strings.Split(line, ".")[1]
 		if num2[0] >= '5' {
-			fmt.Println(num1+1)
+			fmt.Println(num1 + 1)
 		} else {
 			fmt.Println(num1)
 		}

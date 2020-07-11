@@ -47,19 +47,18 @@ func GetData(url string) string {
 }
 
 //通过反射，将结构体打印
-func SmartPrint(i interface{}){
+func SmartPrint(i interface{}) {
 	var kv = make(map[string]interface{})
 	vValue := reflect.ValueOf(i)
-	vType :=reflect.TypeOf(i)
-	for i:=0;i<vValue.NumField();i++{
+	vType := reflect.TypeOf(i)
+	for i := 0; i < vValue.NumField(); i++ {
 		kv[vType.Field(i).Name] = vValue.Field(i)
 	}
 	fmt.Println("\n获取到的对象数据为：")
-	for k,v :=range kv{
+	for k, v := range kv {
 		fmt.Print(k)
 		fmt.Print(":")
 		fmt.Print(v)
 		fmt.Println()
 	}
 }
-

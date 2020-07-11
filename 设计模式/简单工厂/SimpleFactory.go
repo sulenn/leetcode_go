@@ -1,7 +1,7 @@
 package main
 
-type SimpleFactory struct {  // 简单工厂类
-	
+type SimpleFactory struct { // 简单工厂类
+
 }
 
 func (this *SimpleFactory) CreateProduct(name string) Computer {

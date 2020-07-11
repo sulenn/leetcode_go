@@ -17,13 +17,13 @@ func main() {
 		//	break
 		//}
 		alph := make([]int, 128)
-		for i:=0; i<len(str); i++ {
-			if int(str[i]) >= 0 && int(str[i])<=127 {
+		for i := 0; i < len(str); i++ {
+			if int(str[i]) >= 0 && int(str[i]) <= 127 {
 				alph[int(str[i])]++
 			}
 		}
 		result := 0
-		for _, v:= range alph {
+		for _, v := range alph {
 			if v > 0 {
 				result++
 			}

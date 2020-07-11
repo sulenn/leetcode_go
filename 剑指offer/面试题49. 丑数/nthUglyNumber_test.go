@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_nthUglyNumber(T *testing.T)  {
+func Test_nthUglyNumber(T *testing.T) {
 	fmt.Println(nthUglyNumber(10))
 	fmt.Println(nthUglyNumber(11))
 }

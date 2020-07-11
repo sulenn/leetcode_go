@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_recoverFromPreorder(T *testing.T)  {
+func Test_recoverFromPreorder(T *testing.T) {
 	root := recoverFromPreorder("1-2--3--4-5--6--7")
 	BinaryTreePrint(root)
 	root = recoverFromPreorder("1-2--3---4-5--6---7")
@@ -14,8 +14,10 @@ func Test_recoverFromPreorder(T *testing.T)  {
 	BinaryTreePrint(root)
 }
 
-func BinaryTreePrint(root *TreeNode)  {
-	if root == nil {return}
+func BinaryTreePrint(root *TreeNode) {
+	if root == nil {
+		return
+	}
 	fmt.Println(root.Val)
 	BinaryTreePrint(root.Left)
 	BinaryTreePrint(root.Right)

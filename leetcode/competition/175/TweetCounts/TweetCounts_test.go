@@ -28,18 +28,18 @@ import (
 //	}
 //}
 
-func Test_TweetCounts_2(t *testing.T)  {
+func Test_TweetCounts_2(t *testing.T) {
 	obj := Constructor()
-	obj.RecordTweet("tweet0",43)
-	obj.RecordTweet("tweet1",65)
-	obj.RecordTweet("tweet2",39)
-	obj.RecordTweet("tweet3",16)
-	obj.RecordTweet("tweet4",82)
-	obj.RecordTweet("tweet1",25)
-	obj.RecordTweet("tweet3",66)
-	temp := []int {}
+	obj.RecordTweet("tweet0", 43)
+	obj.RecordTweet("tweet1", 65)
+	obj.RecordTweet("tweet2", 39)
+	obj.RecordTweet("tweet3", 16)
+	obj.RecordTweet("tweet4", 82)
+	obj.RecordTweet("tweet1", 25)
+	obj.RecordTweet("tweet3", 66)
+	temp := []int{}
 
-	temp = obj.GetTweetCountsPerFrequency("hour","tweet3",43,1838)
+	temp = obj.GetTweetCountsPerFrequency("hour", "tweet3", 43, 1838)
 	if temp[0] != 1 {
 		t.Error("fail")
 	}

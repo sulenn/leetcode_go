@@ -1,19 +1,19 @@
 package main
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func rightSideView(root *TreeNode) []int {
-	return dfs(root, 0, []int {})
+	return dfs(root, 0, []int{})
 }
 
 // 深搜的顺序为根节点、右子树、左子树
 func dfs(root *TreeNode, depth int, rightSideViewValue []int) []int {
 	if root == nil {
-		return []int {}
+		return []int{}
 	}
 	depth++
 	if len(rightSideViewValue) < depth {

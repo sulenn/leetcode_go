@@ -48,17 +48,17 @@ import "fmt"
 
 func minFlips(a int, b int, c int) int {
 	Ans := 0
-	for (a > 0 || b > 0 || c > 0) {
-		if (c & 1 == 1) {
-			if (a & 1 == 0) && (b & 1 == 0) {
+	for a > 0 || b > 0 || c > 0 {
+		if c&1 == 1 {
+			if (a&1 == 0) && (b&1 == 0) {
 				Ans = Ans + 1
 			}
 		}
-		if (c & 1 == 0) {
-			if (a & 1 == 1) {
+		if c&1 == 0 {
+			if a&1 == 1 {
 				Ans = Ans + 1
 			}
-			if b & 1 == 1 {
+			if b&1 == 1 {
 				Ans = Ans + 1
 			}
 		}
@@ -70,7 +70,7 @@ func minFlips(a int, b int, c int) int {
 }
 
 func main() {
-	fmt.Println(minFlips(2,6,5))
-	fmt.Println(minFlips(4,2,7))
-	fmt.Println(minFlips(1,2,3))
+	fmt.Println(minFlips(2, 6, 5))
+	fmt.Println(minFlips(4, 2, 7))
+	fmt.Println(minFlips(1, 2, 3))
 }

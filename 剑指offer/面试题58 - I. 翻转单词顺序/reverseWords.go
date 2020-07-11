@@ -7,10 +7,10 @@ import "strings"
 func reverseWords(s string) string {
 	sArr := strings.Split(s, " ")
 	result := ""
-	for i:=len(sArr)-1; i>=0; i-- {
+	for i := len(sArr) - 1; i >= 0; i-- {
 		if sArr[i] != "" {
 			result += sArr[i] + " "
 		}
 	}
-	return strings.Trim(result," ")
+	return strings.Trim(result, " ")
 }

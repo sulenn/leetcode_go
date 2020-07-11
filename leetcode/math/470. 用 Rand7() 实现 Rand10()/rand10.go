@@ -19,9 +19,9 @@ func rand10() int {
 	}
 	result := 0
 	if first < 4 {
-		result = 0+second
+		result = 0 + second
 	} else {
-		result = 5+second
+		result = 5 + second
 	}
 	return result
 }

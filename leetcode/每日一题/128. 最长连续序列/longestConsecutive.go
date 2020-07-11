@@ -17,7 +17,7 @@ func longestConsecutive(nums []int) int {
 		numDic[num] = false
 		for true { // 减减减
 			num--
-			if v , ok := numDic[num]; ok && v {
+			if v, ok := numDic[num]; ok && v {
 				len++
 				numDic[num] = false
 			} else {

@@ -15,9 +15,9 @@ func main() {
 			break
 		}
 		arr := make([][]int, nums)
-		for i:=0; i<nums; i++ {
-			fmt.Scan(&c1,&c2)
-			arr[i] = []int {c1,c2}
+		for i := 0; i < nums; i++ {
+			fmt.Scan(&c1, &c2)
+			arr[i] = []int{c1, c2}
 		}
 		fmt.Println(solution(arr))
 	}
@@ -26,18 +26,18 @@ func main() {
 func solution(arr [][]int) int {
 	money := 0
 	count := 1
-	visited := make([]bool,len(arr))
-	for i:=0; i<len(arr);i++ {
+	visited := make([]bool, len(arr))
+	for i := 0; i < len(arr); i++ {
 		if arr[i][1] > 0 {
-			count += arr[i][1] -1
+			count += arr[i][1] - 1
 			money += arr[i][0]
 			visited[i] = true
 		}
 	}
 
-	for i:=0; i<len(arr) && count > 0; i++ {
+	for i := 0; i < len(arr) && count > 0; i++ {
 		max := -1
-		for j:=0; j<len(arr); j++ {
+		for j := 0; j < len(arr); j++ {
 			if visited[j] {
 				continue
 			}
@@ -47,7 +47,9 @@ func solution(arr [][]int) int {
 				max = j
 			}
 		}
-		if max == -1 {return money}
+		if max == -1 {
+			return money
+		}
 		count--
 		money += arr[max][0]
 		visited[max] = true

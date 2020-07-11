@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_fib(T *testing.T)  {
+func Test_fib(T *testing.T) {
 	fmt.Println(fib(1))
 	fmt.Println(fib(2))
 	fmt.Println(fib(3))

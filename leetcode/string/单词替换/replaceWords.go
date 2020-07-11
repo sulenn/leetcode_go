@@ -42,26 +42,26 @@ import (
 
 //前缀树，如何设置数中节点的数量是二维数据构建前缀树的难点
 func replaceWords(dict []string, sentence string) string {
-	sentence = strings.Trim(sentence," ")
+	sentence = strings.Trim(sentence, " ")
 	if len(sentence) == 0 {
 		panic(errors.New("输入的 sentence 为空句子或全空格组成的句子！"))
 	}
 	sentenceArr := strings.Split(sentence, " ")
 
-	trie := make([][]int, 10000000)   // 树中节点的数量
+	trie := make([][]int, 10000000) // 树中节点的数量
 	//trie := make([][]int, len(dict)*26)   // 树中节点的数量
 	for i, _ := range trie {
-		trie[i] = make([]int,26)  //0-25对应 a-z
+		trie[i] = make([]int, 26) //0-25对应 a-z
 	}
 	//color := make([]bool, len(dict)*26)   // 节点着色，如果节点为 true 说明从根节点到该节点的单词串起来是一个词根
-	color := make([]bool, len(dict)*10000000)   // 节点着色，如果节点为 true 说明从根节点到该节点的单词串起来是一个词根
-	countNode := 1  //下一个节点的编号，默认从 0 开始
-	for _, word := range dict {   // 构建字典前缀树
-		if len(word) == 0 {  // 异常
+	color := make([]bool, len(dict)*10000000) // 节点着色，如果节点为 true 说明从根节点到该节点的单词串起来是一个词根
+	countNode := 1                            //下一个节点的编号，默认从 0 开始
+	for _, word := range dict {               // 构建字典前缀树
+		if len(word) == 0 { // 异常
 			panic(errors.New("词根中存在空串！"))
 		}
 		node := 0 // 根节点
-		for i:=0; i<len(word); i++ {
+		for i := 0; i < len(word); i++ {
 			if trie[node][word[i]-'a'] == 0 {
 				trie[node][word[i]-'a'] = countNode
 				node = countNode
@@ -73,16 +73,18 @@ func replaceWords(dict []string, sentence string) string {
 		color[node] = true
 	}
 
-	for j, word:=range sentenceArr {   // 按词根匹配替换句子中的单词
+	for j, word := range sentenceArr { // 按词根匹配替换句子中的单词
 		node := 0 // 根节点
-		for i:=0; i<len(word); i++ {
+		for i := 0; i < len(word); i++ {
 			if trie[node][word[i]-'a'] != 0 {
-				node = trie[node][word[i]-'a' ]
-				if color[node] {  // 匹配词根
+				node = trie[node][word[i]-'a']
+				if color[node] { // 匹配词根
 					sentenceArr[j] = word[:i+1]
 					break
 				}
-			} else {break}
+			} else {
+				break
+			}
 		}
 	}
 
@@ -95,7 +97,6 @@ func replaceWords(dict []string, sentence string) string {
 //		if len(str) != 0 {}
 //	}
 //}
-
 
 func main() {
 	var temp string

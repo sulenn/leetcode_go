@@ -4,22 +4,22 @@ package main
 
 // 双指针
 func findContinuousSequence(target int) [][]int {
-	result := [][]int {}
+	result := [][]int{}
 	start := 1
 	end := 2
 	for start < end {
-		if (start + end)*(end-start+1)/2 == target {   // 等差求和
-			subResult := []int {}
-			for i:= start; i<= end; i++ {   // 满足条件的连续和
+		if (start+end)*(end-start+1)/2 == target { // 等差求和
+			subResult := []int{}
+			for i := start; i <= end; i++ { // 满足条件的连续和
 				subResult = append(subResult, i)
 			}
 			result = append(result, subResult)
 			start++
 		}
-		if (start + end)*(end-start+1)/2 > target {
+		if (start+end)*(end-start+1)/2 > target {
 			start++
 		} else {
-				end++
+			end++
 		}
 	}
 	return result

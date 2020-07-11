@@ -8,8 +8,8 @@ import (
 )
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -20,12 +20,12 @@ func kthSmallest(root *common.TreeNode, k int) int {
 		if root == nil {
 			return
 		}
-		if k == 0 {   // 找到最小值即可，防止递归遍历所有节点
+		if k == 0 { // 找到最小值即可，防止递归遍历所有节点
 			return
 		}
 		smallestElement(root.Left)
 		k--
-		if k == 0{
+		if k == 0 {
 			result = root.Val
 		}
 		smallestElement(root.Right)
@@ -41,8 +41,8 @@ func kthSmallest(root *common.TreeNode, k int) int {
 //}
 
 func main() {
-	root := common.CreateTree([]int {3,1,4,1000001,2})
-	fmt.Println(kthSmallest(root,1))
-	fmt.Println(kthSmallest(root,2))
-	fmt.Println(kthSmallest(root,4))
+	root := common.CreateTree([]int{3, 1, 4, 1000001, 2})
+	fmt.Println(kthSmallest(root, 1))
+	fmt.Println(kthSmallest(root, 2))
+	fmt.Println(kthSmallest(root, 4))
 }

@@ -16,8 +16,8 @@ package main
 //这里的简单解法：从后往前，碰见空格就用 %20 替换
 func replaceSpace(s string) string {
 	newStr := ""
-	for i:=len(s)-1;i>=0;i-- {
-		if s[i] != ' '{
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] != ' ' {
 			newStr = string(s[i]) + newStr
 		} else {
 			newStr = "%20" + newStr
@@ -25,4 +25,3 @@ func replaceSpace(s string) string {
 	}
 	return newStr
 }
-

@@ -9,10 +9,10 @@ func search(nums []int, target int) int {
 	if first == -1 || last == -1 {
 		return 0
 	}
-	return last-first+1
+	return last - first + 1
 }
 
-func firstK(nums []int, target int) int {   // 二分法找第一个 target 下标
+func firstK(nums []int, target int) int { // 二分法找第一个 target 下标
 	start := 0
 	end := len(nums) - 1
 	for start <= end {
@@ -32,7 +32,7 @@ func firstK(nums []int, target int) int {   // 二分法找第一个 target 下�
 	return -1
 }
 
-func lastK(nums []int, target int) int {   // 二分法找最后一个 target 下标
+func lastK(nums []int, target int) int { // 二分法找最后一个 target 下标
 	start := 0
 	end := len(nums) - 1
 	for start <= end {
