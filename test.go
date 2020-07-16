@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "log"
 
 const (
 	Byte FileSize = 1 << (iota * 10)
@@ -14,7 +12,6 @@ const (
 type FileSize int64
 
 func main() {
-	fmt.Println(Byte)
-	fmt.Println(KiByte)
+	log.Fatal("sdgfsdgsgd")
 
 }
