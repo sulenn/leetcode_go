@@ -17,7 +17,7 @@ func merge(arr []int, start int, mid int, end int) {
 		}
 		end--
 	}
-	for rightLen > 0 { //  归并的右边数组右剩余
+	for rightLen > 0 { //  归并的右边数组有剩余
 		arr[end] = right[rightLen-1]
 		rightLen--
 		end--
