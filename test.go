@@ -1,17 +1,11 @@
 package main
 
-import "log"
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
-const (
-	Byte FileSize = 1 << (iota * 10)
-	KiByte
-	MiByte
-	GiByte
-)
-
-type FileSize int64
-
-func main() {
-	log.Fatal("sdgfsdgsgd")
+func nextNode(preorder []int, inorder []int) *TreeNode {
 
 }
