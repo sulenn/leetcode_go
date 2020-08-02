@@ -1,11 +1,16 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
+import "fmt"
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
 }
 
-func nextNode(preorder []int, inorder []int) *TreeNode {
+func deleteDuplicates(head *ListNode) *ListNode {
 
+}
+
+func main() {
+	fmt.Println(1 << 4)
 }
