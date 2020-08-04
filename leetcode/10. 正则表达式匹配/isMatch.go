@@ -17,7 +17,7 @@ func isMatch(s string, p string) bool {
 	}
 	if len(p) > 1 && p[1] == '*' {
 		if len(s) > 0 && (s[0] == p[0] || p[0] == '.') {
-			return isMatch(s[1:], p) || isMatch(s[1:], p[2:])
+			return isMatch(s, p[2:]) || isMatch(s[1:], p) || isMatch(s[1:], p[2:])
 		}
 		return isMatch(s, p[2:])
 	}
@@ -28,11 +28,11 @@ func isMatch(s string, p string) bool {
 }
 
 func main() {
-	//fmt.Println(isMatch("aa", "a"))
-	//fmt.Println(isMatch("aa", "a*"))
-	//fmt.Println(isMatch("aa", ".*"))
-	//fmt.Println(isMatch("aab", "c*a*b"))
-	//fmt.Println(isMatch("mississippi", "mis*is*p*."))
-	//fmt.Println(isMatch("a", "ab*"))
+	fmt.Println(isMatch("aa", "a"))
+	fmt.Println(isMatch("aa", "a*"))
+	fmt.Println(isMatch("aa", ".*"))
+	fmt.Println(isMatch("aab", "c*a*b"))
+	fmt.Println(isMatch("mississippi", "mis*is*p*."))
+	fmt.Println(isMatch("a", "ab*"))
 	fmt.Println(isMatch("ab", ".*c"))
 }
