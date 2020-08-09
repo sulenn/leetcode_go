@@ -5,6 +5,8 @@ import (
 	"io"
 )
 
+//可以用二分法，参考：https://mp.weixin.qq.com/s/M67ttR0r_Bwgkbd4-XcC2A
+
 func main() {
 	var E, EM, M, MH, H int
 	for {

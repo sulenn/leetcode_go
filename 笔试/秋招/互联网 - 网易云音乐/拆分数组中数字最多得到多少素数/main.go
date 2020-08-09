@@ -6,6 +6,8 @@ import (
 	"math/big"
 )
 
+// 大概率是 int 溢出了，导致出错。应该使用 int64
+
 func main() {
 	var n int
 	for {
