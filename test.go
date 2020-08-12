@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -21,5 +23,12 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 		p1 = p1.Next
 		p2 = p2.Next
 	}
+
 	return p2
+}
+
+func main() {
+	var temp []int
+	temp = nil
+	fmt.Println(len(temp))
 }
