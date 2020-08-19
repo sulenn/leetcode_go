@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type ListNode struct {
 	Val  int
@@ -28,7 +31,20 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 }
 
 func main() {
-	var temp []int
-	temp = nil
-	fmt.Println(len(temp))
+	var temp = make(chan int, 1)
+	count := 0
+	close(temp)
+	for {
+		select {
+		case <-temp:
+			return
+		default:
+			time.Sleep(1 * time.Second)
+			fmt.Println("qiubing1")
+			if count > 5 {
+				close(temp)
+			}
+			count++
+		}
+	}
 }
