@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"log"
 )
 
 type ListNode struct {
@@ -31,20 +30,45 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 }
 
 func main() {
-	var temp = make(chan int, 1)
-	count := 0
-	close(temp)
-	for {
-		select {
-		case <-temp:
-			return
-		default:
-			time.Sleep(1 * time.Second)
-			fmt.Println("qiubing1")
-			if count > 5 {
-				close(temp)
-			}
-			count++
-		}
+	//var temp = make(chan int, 1)
+	//count := 0
+	//close(temp)
+	//for {
+	//	select {
+	//	case <-temp:
+	//		return
+	//	default:
+	//		time.Sleep(1 * time.Second)
+	//		fmt.Println("qiubing1")
+	//		if count > 5 {
+	//			close(temp)
+	//		}
+	//		count++
+	//	}
+	//}
+	var i interface{} = 10
+	_, ok := i.(int)
+	if !ok {
+		log.Fatalf("sdjgkajdgka")
 	}
 }
+
+//type temp interface {
+//	print()
+//}
+//
+//type qiubing struct {
+//}
+
+//func (q *qiubing) print() {
+//	fmt.Println("qiubing")
+//}
+//
+//func inter(in interface{}) {
+//	var i interface{} = 10
+//	_, ok := i.(string)
+//	if !ok {
+//		log.Fatalf("sdjgkajdgka")
+//	}
+//
+//}
