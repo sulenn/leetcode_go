@@ -2,69 +2,91 @@ package main
 
 import "fmt"
 
-// 最大堆
 type Heap struct {
-	Size int
-	Nums []int
+	Size  int
+	Elems []int
 }
 
-func NewHeap() *Heap {
-	return &Heap{Size: -1, Nums: make([]int, 0)} // 注意 size 初始化 -1
+func NewHeap(MaxSize int) *Heap {
+	h := new(Heap)
+	h.Elems = make([]int, MaxSize, MaxSize)
+	return h
 }
 
-func (h *Heap) Push(num int) {
+func (h *Heap) Push(x int) {
 	h.Size++
-	if h.Size == len(h.Nums) { // 溢出，扩容
-		h.Nums = append(h.Nums, 0)
-	}
+
+	// i是要插入节点的下标
 	i := h.Size
 	for {
 		if i <= 0 {
 			break
 		}
-		parent := (i - 1) / 2
-		if h.Nums[parent] >= num {
-			break
 
+		// parent为父亲节点的下标
+		parent := (i - 1) / 2
+		// 如果父亲节点小于等于插入的值，则说明大小没有跌倒，可以退出
+		if h.Elems[parent] <= x {
+			break
 		}
-		h.Nums[i] = h.Nums[parent]
+
+		// 互换当前父亲节点与要插入的值
+		h.Elems[i] = h.Elems[parent]
 		i = parent
 	}
-	h.Nums[i] = num
+
+	h.Elems[i] = x
 }
 
 func (h *Heap) Pop() int {
-	if h.Size < 0 {
-		return -1
+	if h.Size == 0 {
+		return 0
 	}
-	//h.Size--
-	result := h.Nums[0]
-	h.Nums[0] = h.Nums[h.Size]
+
+	// 取出根节点
+	ret := h.Elems[0]
+
+	// 将最后一个节点的值提到根节点上
 	h.Size--
+	x := h.Elems[h.Size]
+
 	i := 0
 	for {
-		left := i*2 + 1
-		right := i*2 + 2
-		if right <= h.Size && h.Nums[left] < h.Nums[right] {
-			h.Nums[left], h.Nums[right] = h.Nums[right], h.Nums[left]
-		}
-		if left <= h.Size && h.Nums[i] < h.Nums[left] {
-			h.Nums[i], h.Nums[left] = h.Nums[left], h.Nums[i]
-		} else {
+		// a，b为左右两个子节点的下标
+		a := 2*i + 1
+		b := 2*i + 2
+
+		// 没有左子树
+		if a >= h.Size {
 			break
 		}
-		i = left
+
+		// 有右子树，找两个子节点中较小的值
+		if b < h.Size && h.Elems[b] < h.Elems[a] {
+			a = b
+		}
+
+		// 父亲小直接退出
+		if h.Elems[a] >= x {
+			break
+		}
+
+		// 交换
+		h.Elems[i] = h.Elems[a]
+		i = a
 	}
-	return result
+
+	h.Elems[i] = x
+	return ret
 }
 
-func (h *Heap) Print() {
-	fmt.Printf("h.Nums: %v, h.Size: %v\n", h.Nums, h.Size)
+func (h *Heap) Display() {
+	fmt.Printf("Size:%d,Elems:%#v\n", h.Size, h.Elems[0:h.Size])
 }
 
 func main() {
-	h := NewHeap()
-	h.Print()
+	h := NewHeap(100)
+	h.Display()
 
 	h.Push(3)
 	h.Push(6)
@@ -73,29 +95,16 @@ func main() {
 	h.Push(1)
 	h.Push(2)
 	h.Push(3)
-	h.Print()
+	h.Display()
 
 	fmt.Println(h.Pop())
-	h.Print()
+	h.Display()
 	fmt.Println(h.Pop())
-	h.Print()
+	h.Display()
 	fmt.Println(h.Pop())
-	h.Print()
+	h.Display()
 	fmt.Println(h.Pop())
-	h.Print()
+	h.Display()
 	fmt.Println(h.Pop())
-	h.Print()
-	fmt.Println(h.Pop())
-	h.Print()
-	fmt.Println(h.Pop())
-	h.Print()
-	fmt.Println(h.Pop())
-	h.Print()
-
-	h.Push(20)
-	h.Print()
-	h.Push(15)
-	h.Print()
-	h.Push(30)
-	h.Print()
+	h.Display()
 }

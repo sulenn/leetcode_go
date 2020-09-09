@@ -2,28 +2,37 @@ package main
 
 import "fmt"
 
-func sort(nums []int) {
+func heapSort(nums []int) {
 	length := len(nums)
-	mid := length / 2
-	for i := mid; i >= 0; i-- {
-		for {
-			left := i*2 + 1
-			right := i*2 + 2
-			if right < length && nums[left] < nums[right] {
-				nums[left], nums[right] = nums[right], nums[left]
-			}
-			if left < length && nums[i] < nums[left] {
-				nums[i], nums[left] = nums[left], nums[i]
-			} else {
-				break
-			}
-			i = left
+	for i := length / 2; i >= 0; i-- {
+		adjustHeap(nums, i)
+	}
+}
+
+func adjustHeap(nums []int, pos int) {
+	length := len(nums)
+	for {
+		child := pos*2 + 1
+		if child+1 < length && nums[child+1] > nums[child] {
+			child++
 		}
+		if child < length && nums[child] > nums[pos] {
+			nums[child], nums[pos] = nums[pos], nums[child]
+		} else {
+			break
+		}
+		pos = child
 	}
 }
 
 func main() {
-	nums := []int{2, 1, 5, 6, 3, 4, 7, 2, 5}
-	sort(nums)
+	//nums := []int{2, 1, 5, 6, 3, 4, 7, 2, 5}
+	nums := []int{2, 1, 4, 5, 3, 7, 8, 6}
+	heapSort(nums)
+	fmt.Println(nums)
+	for i := len(nums) - 1; i > 0; i-- {
+		nums[0], nums[i] = nums[i], nums[0]
+		adjustHeap(nums[:i], 0)
+	}
 	fmt.Println(nums)
 }
