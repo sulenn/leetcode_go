@@ -28,9 +28,10 @@ func findNthDigit(n int) int {
 }
 
 func main() {
-	fmt.Println(findNthDigit(3))
-	fmt.Println(findNthDigit(11))
-	fmt.Println(findNthDigit(10))
-	fmt.Println(findNthDigit(9))
-	fmt.Println(findNthDigit(0))
+	//fmt.Println(findNthDigit(3))
+	//fmt.Println(findNthDigit(11))
+	//fmt.Println(findNthDigit(10))
+	//fmt.Println(findNthDigit(9))
+	//fmt.Println(findNthDigit(0))
+	fmt.Println("321" > "32")
 }
