@@ -5,37 +5,26 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// 参考：https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
 func detectCycle(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
 	// 判断有环
-	slow, fast := head, head.Next
-	for slow != fast {
-		if fast != nil && fast.Next != nil {
-			fast = fast.Next.Next
-		} else {
+	slow, fast := head, head
+	for {
+		if fast == nil || fast.Next == nil {
 			return nil
 		}
 		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			break
+		}
 	}
-
-	// 记录环的大小
-	countNode := fast
-	count := 1
-	for countNode.Next != fast {
-		countNode = countNode.Next
-		count++
+	fast = head
+	for fast != slow {
+		fast, slow = fast.Next, slow.Next
 	}
-
-	// 获得环的入口节点
-	entranceNode := head
-	for i := 0; i < count; i++ {
-		entranceNode = entranceNode.Next
-	}
-	for head != entranceNode {
-		head = head.Next
-		entranceNode = entranceNode.Next
-	}
-	return entranceNode
+	return fast
 }
