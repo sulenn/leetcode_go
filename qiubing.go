@@ -1,55 +1,59 @@
 package main
 
-import "fmt"
+import (
+	"os"
+
+	log "github.com/sirupsen/logrus"
+)
+
+var logger = log.New()
+
+func init() {
+	// Log as JSON instead of the default ASCII formatter.
+	//log.SetFormatter(&log.JSONFormatter{})
+
+	// Output to stdout instead of the default stderr
+	// Can be any io.Writer, see below for File example
+	log.SetOutput(os.Stderr)
+
+	// Only log the warning severity or above.
+	log.SetLevel(log.InfoLevel)
+
+	//log.se
+}
 
 func main() {
-	fmt.Println(exist([][]byte{{'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'}}, "abehi"))
-	fmt.Println(exist([][]byte{{'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'}}, ""))
-	fmt.Println(exist([][]byte{{'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'}}, "abehie"))
-}
+	//logger.Out = os.Stdout
+	//
+	//_, err := os.OpenFile("logrus.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	//if err == nil {
+	//	logger.Out = os.Stdout
+	//} else {
+	//	logger.Info("Failed to log to file, using default stderr")
+	//}
 
-func exist(board [][]byte, word string) bool {
-	if len(word) == 0 {
-		return true
-	}
-	if len(board) == 0 {
-		return false
-	}
-	length := len(board)
-	width := len(board[0])
-	flag := make([][]bool, length)
-	for v := 0; v < length; v++ {
-		flag[v] = make([]bool, width)
-	}
-	for i := 0; i < length; i++ {
-		for j := 0; j < width; j++ {
-			if board[i][j] == word[0] && backtracking(board, word[1:], i, j, flag) {
-				return true
-			}
-		}
-	}
-	return false
-}
+	logger.WithFields(log.Fields{
+		"animal": "walrus",
+		"size":   10,
+	}).Info("A group of walrus emerges from the ocean")
 
-func backtracking(board [][]byte, word string, x, y int, flag [][]bool) bool {
-	if len(word) == 0 {
-		return true
-	}
-	flag[x][y] = true
-	height := len(board)
-	width := len(board[0])
-	if x+1 < height && !flag[x+1][y] && board[x+1][y] == word[0] && backtracking(board, word[1:], x+1, y, flag) {
-		return true
-	}
-	if y-1 >= 0 && !flag[x][y-1] && board[x][y-1] == word[0] && backtracking(board, word[1:], x, y-1, flag) {
-		return true
-	}
-	if x-1 >= 0 && !flag[x-1][y] && board[x-1][y] == word[0] && backtracking(board, word[1:], x-1, y, flag) {
-		return true
-	}
-	if y+1 < width && !flag[x][y+1] && board[x][y+1] == word[0] && backtracking(board, word[1:], x, y+1, flag) {
-		return true
-	}
-	flag[x][y] = false
-	return false
+	logger.WithFields(log.Fields{
+		"omg":    true,
+		"number": 122,
+	}).Warn("The group's number increased tremendously!")
+
+	logger.WithFields(log.Fields{
+		"omg":    true,
+		"number": 100,
+	}).Fatal("The ice breaks!")
+
+	// A common pattern is to re-use fields between logging statements by re-using
+	// the logrus.Entry returned from WithFields()
+	contextLogger := log.WithFields(log.Fields{
+		"common": "this is a common field",
+		"other":  "I also should be logged always",
+	})
+
+	contextLogger.Info("I'll be logged with common and other field")
+	contextLogger.Info("Me too")
 }
