@@ -9,6 +9,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+//参考：https://leetcode-cn.com/problems/palindrome-linked-list/solution/cjian-ji-dai-ma-by-orangeman-27/
 func isPalindrome(head *ListNode) bool {
 	slow := head
 	fast := head
