@@ -14,4 +14,5 @@ func busyStudent(startTime []int, endTime []int, queryTime int) int {
 
 func main() {
 	fmt.Println(busyStudent([]int{1, 1, 1, 1}, []int{1, 3, 2, 4}, 7))
+
 }
