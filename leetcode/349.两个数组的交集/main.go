@@ -1,5 +1,7 @@
 package main
 
+// https://leetcode-cn.com/problems/intersection-of-two-arrays/
+
 func intersection(nums1 []int, nums2 []int) []int {
 	numDict := make(map[int]struct{})
 	for i := 0; i < len(nums1); i++ {
